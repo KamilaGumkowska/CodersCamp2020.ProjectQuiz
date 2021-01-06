@@ -1,0 +1,57 @@
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#numberOfQuestionsInput,
+#diffLvl {
+    border: 1px solid #000000;
+    height: 5px;
+    width: 100%;
+    border-radius: 3px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+
+input[type='range']::-moz-range-thumb,
+input[type='range']::-webkit-slider-thumb {
+    border: 1px solid #000000;
+    height: 20px;
+    width: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+
+.numberOfQuestionsContainer,
+.lvlContainer {
+    display: flex;
+    border: 2px solid red;
+    flex-direction: column;
+    width: 60%;
+    padding: 20px 10px;
+}
+.numberOfQuestionsContainer p {
+    text-align: center;
+}
+.lvlLabelsContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.numberOfQuestionsInputWrapper{
+     position: relative;
+     margin-top:30px;
+}
+
+.bubble {
+    background: red;
+    color: white;
+    padding: 4px 12px;
+    position: absolute;
+    border-radius: 4px;
+    left: 50%;
+    top: -200%;
+    transform: translateX(-50%);
+}
