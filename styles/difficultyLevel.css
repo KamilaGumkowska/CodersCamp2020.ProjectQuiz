@@ -1,7 +1,22 @@
-html {
+html,
+body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background: #323232;
+}
+#quiz-app {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+}
+.levelScreenWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: space-around;
 }
 
 #numberOfQuestionsInput,
@@ -27,31 +42,68 @@ input[type='range']::-webkit-slider-thumb {
 .numberOfQuestionsContainer,
 .levelContainer {
     display: flex;
-    border: 2px solid red;
     flex-direction: column;
+    justify-content: space-around;
     width: 60%;
-    padding: 20px 10px;
+    padding: 0px 10px;
+    margin-top:2%;
+    height:30%;
 }
+
 .numberOfQuestionsContainer p {
     text-align: center;
+    margin:0;
 }
 .levelLabelsContainer {
     display: flex;
     justify-content: space-between;
 }
 
-.numberOfQuestionsInputWrapper{
-     position: relative;
-     margin-top:30px;
+.numberOfQuestionsInputWrapper {
+    position: relative;
+    margin-top: 10%;
 }
 
 .bubble {
-    background: red;
+    background: #fdb813;
+    font-family: Poppins;
     color: white;
     padding: 4px 12px;
     position: absolute;
     border-radius: 4px;
+    border: 3px solid #f8f8f8;
     left: 50%;
-    top: -200%;
+    top: -250%;
     transform: translateX(-50%);
+}
+
+.buttonsContainer {
+    /* position: absolute; */
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    /* bottom: 20%; */
+    height: 20%;
+}
+
+.buttonsContainer * {
+    border: 5px solid #f8f8f8;
+    box-sizing: border-box;
+    border-radius: 57px;
+    background-color: #323232;
+    height: auto;
+    width: 30%;
+    border-radius: 57px;
+    margin: 0 4%;
+}
+
+.font {
+    font-family: Poppins;
+    font-size: 3.5vw;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #f8f8f8;
 }
