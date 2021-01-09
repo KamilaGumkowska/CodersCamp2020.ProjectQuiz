@@ -1,0 +1,47 @@
+.timerContainer {
+    position: relative;
+    height: 200px;
+    width: 200px;
+}
+.timerCircle {
+    fill: none;
+    stroke: none;
+}
+.timerPath {
+    stroke-width: 7px;
+    stroke:  gray;
+}  
+.base-timer__svg {
+    transform: scaleX(-1);
+}
+.timerLabel {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 82px;
+    color: white;
+}
+.timerPathRemaining {
+    stroke-width: 7px;
+    stroke-linecap: round;
+    transform: rotate(90deg);
+    transform-origin: center;
+    transition: 1s linear all;
+    stroke: currentColor;
+}
+.timerPathRemaining.green {
+    color: rgb(3, 75, 230);
+}
+
+.timerPathRemaining.orange {
+    color: #FDB813;
+}
+
+.timerPathRemaining.red {
+    color: red;
+}
+  
