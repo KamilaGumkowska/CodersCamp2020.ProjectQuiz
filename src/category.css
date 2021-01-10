@@ -1,0 +1,94 @@
+body {
+    background-color: #323232;;
+}
+#swquiz-app {
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  
+    grid-gap: 30px;
+    width: 80vw;
+   
+    margin:10vh auto;
+    padding-top: 10vh;
+
+}
+.bg {
+    
+    height: 20vh;
+    font-family: Poppins;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 53px;
+    letter-spacing: 0em;
+    text-align: center;
+    border: #F8F8F8 solid 5px;
+    border-radius: 40px;
+    background-size: cover; 
+    overflow: hidden;
+    color: #F8F8F8;
+  
+
+display: flex;
+flex-direction: column;
+justify-content: center;
+
+}
+.submit button {  
+    grid-column-start: 1;   
+}
+
+/*
+ .one  {
+    background-image: url("/biology.jpg");
+
+}
+.two {
+    background-image: url(/art.jpg);
+    background-position: top;
+}
+.three {
+    background-image: url(/sport.jpg);
+    background-position: bottom;
+}
+.four {
+    background-image: url(/music.jpg);
+}
+.five {
+    background-image: url(/computers.jpg);
+}
+.six {
+    background-image: url(/general2.jpg);
+} 
+*/
+.one button {
+    background-color: transparent;
+}
+a {
+    text-decoration: none;
+    color: #F8F8F8;
+}
+
+.bg:hover {
+    background-color: rgba(253,184,19,1); 
+    background-image: none;
+    cursor: pointer; 
+
+}
+
+
+.bg:focus {
+    background-color: rgba(253,184,19,1); /*nie działa */
+}    
+      
+ 
+img:hover {
+    opacity: 0.8;
+    transform: scale(2);
+   
+} 
+.bg > * {
+    border: none;
+    height: 100%;
+    width: 100%;
+}
