@@ -79,14 +79,14 @@ body {
 }
 .top-img {
     position: relative;
-    right: 20;
+    right: 25px;
     width: 360px;
     margin-bottom: 2vh;
 }
 .bottom-img {
     position: absolute;
     bottom: 0;
-    right: 20;
+    right: 25px;
     width: 320px;
     height: 200px;
 }
