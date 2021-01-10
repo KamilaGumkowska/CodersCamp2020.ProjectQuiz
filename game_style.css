@@ -46,6 +46,9 @@ body {
     font-size: 23px;
     margin-left: 0;
 }
+.level p {
+    font-size: 16px;
+}
 .rest {
     display: flex;
     flex-direction: column;

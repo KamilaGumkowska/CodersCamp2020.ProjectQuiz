@@ -9,8 +9,11 @@ let availableQuestions = [];
 let rightAnswer = false;
 let level = "Hard";
 let score = 0;
+let amountOfQuestions = 20;
+let categoryNumber = 25;
+let difficultyLevel = "hard"
 
-fetch("https://opentdb.com/api.php?amount=50&category=9")
+fetch(`https://opentdb.com/api.php?amount=${amountOfQuestions}&category=${categoryNumber}&difficulty=${difficultyLevel}`)
 .then (res => {
     return res.json();
 })
@@ -19,6 +22,7 @@ fetch("https://opentdb.com/api.php?amount=50&category=9")
         const receivedOutput = {
             question: loadedQ.question,
             category: loadedQ.category,
+            difficulty: loadedQ.difficulty,
         };
         const receivedAnswers = [...loadedQ.incorrect_answers];
         receivedOutput.answer = Math.floor(Math.random()*3)+1;
@@ -31,25 +35,12 @@ fetch("https://opentdb.com/api.php?amount=50&category=9")
     })
     startGame();
     categoryIcon();
+    howDifficult();
+    setQuestions();
     
-    QUIZ.innerHTML = `
-        <h3>Question <img src="${currentIcon}" alt = "${currentQuestion.category}"/></h3>
-        <p id = "question-asked">${currentQuestion.question}</p>
-        <div class = "answer">
-            <p>${currentQuestion.answer0}</p>
-        </div>
-        <div class = "answer">
-            <p>${currentQuestion.answer1}</p>
-        </div>
-        <div class = "answer" id = "third-option">
-            <p>${currentQuestion.answer2}</p>
-        </div>
-        <div class = "answer" id = "fourth-option">
-            <p>${currentQuestion.answer3}</p>
-        </div>
-    ` 
+
     ifTrueOrFalse(); 
-    logWhenClicked();
+    addEventListeners();
     letsQuit();
 })
 .catch((err) => {
@@ -75,12 +66,13 @@ ifTrueOrFalse = () => {
     }
 }
 categoryIcon = () => {
+    console.log(currentQuestion.category)
     switch(currentQuestion.category) {
         case "Sports":
             currentIcon = "https://img.icons8.com/color/48/000000/sport.png";
             break;
-        case "Entertainment: Film":
-            currentIcon = "https://img.icons8.com/color/48/000000/film-reel.png";
+        case "Science & Nature":
+            currentIcon = "https://img.icons8.com/color/48/000000/natural-food.png";
             break;
         case "Entertainment: Music":
             currentIcon = "https://img.icons8.com/color/48/000000/piano.png";
@@ -88,32 +80,74 @@ categoryIcon = () => {
         case "General Knowledge":
             currentIcon = "https://img.icons8.com/color/48/000000/idea-sharing.png";
             break;
+        case "Art":
+            currentIcon = "https://img.icons8.com/color/48/000000/paint-brush.png";
+            break;
+        case "Science: Computers":
+            currentIcon = "https://img.icons8.com/color/48/000000/monitor--v1.png"
+            break;
         default:
             currentIcon = "https://img.icons8.com/color/48/000000/film-reel.png";
     }
 }
-logWhenClicked = () => {
+
+setQuestions = () => {
+    QUIZ.innerHTML = `
+        <h3>Question <img src="${currentIcon}" alt="${currentQuestion.category}"/></h3>
+        <p id="question-asked">${currentQuestion.question}</p>
+        <div class="answer">
+            <p>${currentQuestion.answer0}</p>
+        </div>
+        <div class="answer">
+            <p>${currentQuestion.answer1}</p>
+        </div>
+        <div class="answer" id="third-option">
+            <p>${currentQuestion.answer2}</p>
+        </div>
+        <div class="answer" id="fourth-option">
+            <p>${currentQuestion.answer3}</p>
+        </div>
+        <div id="level" class="level">
+            <p>level ${level}</p>
+        </div>
+    ` 
+}
+
+addEventListeners = () => {
     const ANSWERS = Array.from(document.getElementsByClassName("answer"));
     ANSWERS.forEach(answer => {
         answer.addEventListener('click',(e) => {
-            console.log("I clicked");
+            getAnotherQuestion();
+            setQuestions();
+            ifTrueOrFalse();
+            addEventListeners();
         })
-        answer.addEventListener('click', getAnotherQuestion());
     })
 }
 letsQuit = () => {
     const QUIBUTTON = document.getElementById("quit");
     QUIBUTTON.addEventListener('click', (e) => {
         console.log("Quit click!");
-        return window.location.assign('#');
+        return window.location.assign('wtf');
     })
 }
+howDifficult = () => {
+    switch(currentQuestion.difficulty) {
+        case "hard":
+            level = "Hard";
+            break;
+        case "medium":
+            level = "Medium";
+            break;
+        case "easy":
+            level = "Easy";
+            break;
+    }
+}
+
 REST.innerHTML = `
     <img class = "top-img" src = "./src/photos/img1.png" alt = "Top part of the man's head">
     <div id = "app" class = "timer"></div>
-    <div class = "level">
-        <p>level ${level}</p>
-    </div>
     <div id = "quit"class = "quit">
         <p>Quit</p>
     </div>

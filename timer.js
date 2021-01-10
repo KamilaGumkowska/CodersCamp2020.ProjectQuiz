@@ -28,7 +28,7 @@ function formatTime(timeLeft) {
     }
     return seconds;
   }
-function startTimer() {
+export function startTimer() {
     timerInterval = setInterval(() => {
         timePassed = timePassed += 1;
         timeLeft = TIME_LIMIT- timePassed;
