@@ -1,11 +1,7 @@
-export { showDifficultyLevelScreen };
-
 const LEVEL_NAMES = ['EASY', 'MEDIUM', 'HARD'];
-const MAIN = document.querySelector('#quiz-app');
+const MAIN = document.querySelector('#main-wrap');
 
-
-
-function showDifficultyLevelScreen(quizSettings) {
+export function showDifficultyLevelScreen(quizSettings) {
     createHTMLStructure();
     currentNumberOfQuestions();
     // let numberOfQuestionsInput = document.querySelector('#numberOfQuestionsInput');
@@ -21,7 +17,7 @@ const createHTMLStructure = () => {
         'p',
         'numberOfQuestionsParagraph font',
         numberOfQuestionsContainer,
-        'NUMBER OF QUESTIONS'
+        'NUMBER OF QUESTIONS',
     );
     levelContainer.innerHTML = `<input type="range" class="differenceLevel" min="0" max="2" step="1"/>`;
 
@@ -40,10 +36,9 @@ const createHTMLStructure = () => {
     let buttonsContainer = createDOMElement('div', 'buttonsContainer', levelScreenWrapper);
     let backToCategoryPageButton = createDOMElement('button', 'backToCategoryPageButton font', buttonsContainer);
     let confirmLevelButton = createDOMElement('button', 'confirmLevelButton font', buttonsContainer);
-    backToCategoryPageButton.textContent = "BACK";
+    backToCategoryPageButton.textContent = 'BACK';
     backToCategoryPageButton.setAttribute('onclick', "window.location.href='#quiz-app'");
     confirmLevelButton.textContent = "LET'S PLAY!";
-
 };
 const createDOMElement = function (type, className, parent, text = '') {
     const newElement = document.createElement(type);
@@ -68,7 +63,7 @@ function setBubble(range, bubble) {
     const max = range.max ? range.max : 100;
     const newVal = Number(((val - min) * 100) / (max - min));
     bubble.innerHTML = val;
-    bubble.style.left = `calc(${newVal}% + (${13 - newVal * 0.20}px))`;
+    bubble.style.left = `calc(${newVal}% + (${13 - newVal * 0.2}px))`;
 }
 
 const updateSettings = (quizSettings) => {
