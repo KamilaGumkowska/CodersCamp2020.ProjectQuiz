@@ -1,0 +1,136 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Poppins, serif;
+}
+
+:root {
+    --black: #323232;
+    --yellow: #fdb813;
+    --white: #f8f8f8;
+}
+
+body {
+    background-color: var(--black);
+    color: black;
+}
+
+fieldset {
+    color: white;
+    background-color: white;
+}
+
+.menuButton {
+    color: #fdb813;
+    position: absolute;
+    margin-top: 0.2rem;
+    margin-left: 1rem;
+    font-size: 1.5rem;
+}
+
+#leaderboard {
+    max-width: 70vw;
+    height: 100vh;
+    margin: auto auto;
+}
+
+.top3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    margin-bottom: 6rem;
+}
+
+.top3 .item {
+    display: flex;
+    flex-direction: column;
+    width: 9rem;
+    text-align: center;
+    padding: 2.8rem 0 0;
+    margin: 1rem 1rem 2rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.top3 .item1 {
+    color: gold;
+    height: 4rem;
+}
+
+.top3 .item2 {
+    margin-top: 2rem;
+    color: silver;
+    height: 3rem;
+}
+
+.top3 .item3 {
+    margin-top: 3rem;
+    color: brown;
+    height: 2rem;
+}
+
+.top3 .position {
+    font-weight: 800;
+    font-size: 4rem;
+}
+
+.top3 .name {
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.top3 .score {
+    opacity: 0.7;
+}
+
+.list {
+    margin: 6rem auto;
+    min-width: 160px;
+}
+.list .item {
+    display: flex;
+    align-items: center;
+    background: white;
+    height: 2rem;
+    border-radius: 4rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+}
+.list .position {
+    background-color: red;
+    color: red;
+    font-weight: 900;
+    position: absolute;
+    left: -2rem;
+    font-size: 1.25rem;
+    width: 1.5rem;
+    opacity: 0.6;
+}
+.list .name {
+    font-weight: 500;
+    margin-left: 1rem;
+    flex-grow: 2;
+    flex-basis: 10rem;
+    font-size: 1.1rem;
+}
+.list .score {
+    margin-right: 1.5rem;
+    opacity: 0.7;
+}
+
+.top-img {
+    position: absolute;
+    right: 20;
+    width: 360px;
+    margin-bottom: 2vh;
+}
+.bottom-img {
+    position: absolute;
+    bottom: 0;
+    right: 20;
+    width: 320px;
+    height: 200px;
+}
