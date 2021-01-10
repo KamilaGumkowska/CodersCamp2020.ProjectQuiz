@@ -1,4 +1,10 @@
+import image1 from "./../../styles/img/img1.png"
+import image2 from "./../../styles/img/img2.png"
+
 const mainWrap = document.getElementById("main-wrap");
+
+const startWrap = document.createElement("div");
+startWrap.id = "startwrap";
 
 const mainGame = document.createElement("div");
 mainGame.className = "main-game";
@@ -52,18 +58,21 @@ optionsBtn.innerHTML = "options";
 
 const img1 = document.createElement("img");
 img1.className = "headimg";
-img1.src = "../styles/img/img1.png";
+img1.src = image1;
 
 const img2 = document.createElement("img");
 img2.className = "blueimg";
+img2.src = image2;
 
 
-mainWrap.appendChild(mainGame);
-mainWrap.appendChild(leaderBoardWrap);
-mainWrap.appendChild(creditsWrap);
-mainWrap.appendChild(optionsWrap);
-mainWrap.appendChild(img1);
-mainWrap.appendChild(img2);
+mainWrap.appendChild(startWrap);
+
+startWrap.appendChild(mainGame);
+startWrap.appendChild(leaderBoardWrap);
+startWrap.appendChild(creditsWrap);
+startWrap.appendChild(optionsWrap);
+startWrap.appendChild(img1);
+startWrap.appendChild(img2);
 
 mainGame.appendChild(gameTitle);
 mainGame.appendChild(gameSubTitle);
@@ -76,3 +85,20 @@ leaderBoardWrap.appendChild(leaderBtn);
 creditsWrap.appendChild(creditsBtn);
 
 optionsWrap.appendChild(optionsBtn);
+
+function hideStartScreen() {
+    startWrap.style.visibility = 'hidden';
+}
+
+function goToSingle() {
+    hideStartScreen();
+    // start function for the single game
+};
+
+function goToMulti() {
+    hideStartScreen();
+    // start function for the multi game
+};
+
+singleBtn.addEventListener('click', goToSingle);
+multiBtn.addEventListener('click', goToMulti);
