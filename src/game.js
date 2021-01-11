@@ -10,7 +10,7 @@ let rightAnswer = false;
 let level = "Hard";
 let score = 0;
 let amountOfQuestions = 20;
-let categoryNumber = 25;
+let categoryNumber = 23;
 let difficultyLevel = "hard"
 
 fetch(`https://opentdb.com/api.php?amount=${amountOfQuestions}&category=${categoryNumber}&difficulty=${difficultyLevel}`)
@@ -38,7 +38,6 @@ fetch(`https://opentdb.com/api.php?amount=${amountOfQuestions}&category=${catego
     howDifficult();
     setQuestions();
     
-
     ifTrueOrFalse(); 
     addEventListeners();
     letsQuit();
@@ -66,10 +65,9 @@ ifTrueOrFalse = () => {
     }
 }
 categoryIcon = () => {
-    console.log(currentQuestion.category)
     switch(currentQuestion.category) {
-        case "Sports":
-            currentIcon = "https://img.icons8.com/color/48/000000/sport.png";
+        case "Entertainment: Video Games":
+            currentIcon = "https://img.icons8.com/color/48/000000/visual-game-boy.png";
             break;
         case "Science & Nature":
             currentIcon = "https://img.icons8.com/color/48/000000/natural-food.png";
@@ -80,11 +78,11 @@ categoryIcon = () => {
         case "General Knowledge":
             currentIcon = "https://img.icons8.com/color/48/000000/idea-sharing.png";
             break;
-        case "Art":
-            currentIcon = "https://img.icons8.com/color/48/000000/paint-brush.png";
+        case "History":
+            currentIcon = "https://img.icons8.com/color/48/000000/anubis.png";
             break;
-        case "Science: Computers":
-            currentIcon = "https://img.icons8.com/color/48/000000/monitor--v1.png"
+        case "Geography":
+            currentIcon = "https://img.icons8.com/color/48/000000/america.png";
             break;
         default:
             currentIcon = "https://img.icons8.com/color/48/000000/film-reel.png";
@@ -128,7 +126,7 @@ letsQuit = () => {
     const QUIBUTTON = document.getElementById("quit");
     QUIBUTTON.addEventListener('click', (e) => {
         console.log("Quit click!");
-        return window.location.assign('wtf');
+        return window.location.assign('end');
     })
 }
 howDifficult = () => {
@@ -146,10 +144,10 @@ howDifficult = () => {
 }
 
 REST.innerHTML = `
-    <img class = "top-img" src = "./src/photos/img1.png" alt = "Top part of the man's head">
-    <div id = "app" class = "timer"></div>
-    <div id = "quit"class = "quit">
+    <img class="top-img" src="require('./photos/img1.png')" alt="Top part of the man's head">
+    <div id="app" class="timer"></div>
+    <div id="quit"class="quit">
         <p>Quit</p>
     </div>
-    <img class = "bottom-img" src="./src/photos/img2.png" alt = "Bottom part of the man's head">
+    <img class="bottom-img" src=require('./photos/img2.png') alt="Bottom part of the man's head">
 `
