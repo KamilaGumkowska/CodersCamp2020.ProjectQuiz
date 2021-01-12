@@ -12,6 +12,9 @@ body {
     padding-top: 10vh;
 
 }
+.hide {
+    display: none;
+}
 .bg {
     
     height: 20vh;
