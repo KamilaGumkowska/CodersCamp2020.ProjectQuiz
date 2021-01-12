@@ -1,3 +1,4 @@
+import img1 from "./photos/img1.png"
 const QUIZ = document.getElementById("question");
 const REST = document.getElementById("rest");
 const POINTS_IF_RIGHT = 15;
@@ -10,7 +11,7 @@ let rightAnswer = false;
 let level = "Hard";
 let score = 0;
 let amountOfQuestions = 20;
-let categoryNumber = 23;
+let categoryNumber = 11;
 let difficultyLevel = "hard"
 
 fetch(`https://opentdb.com/api.php?amount=${amountOfQuestions}&category=${categoryNumber}&difficulty=${difficultyLevel}`)
@@ -144,7 +145,7 @@ howDifficult = () => {
 }
 
 REST.innerHTML = `
-    <img class="top-img" src="require('./photos/img1.png')" alt="Top part of the man's head">
+    <img class="top-img" src="${img1}" alt="Top part of the man's head">
     <div id="app" class="timer"></div>
     <div id="quit"class="quit">
         <p>Quit</p>
