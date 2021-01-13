@@ -1,3 +1,6 @@
+import image3 from './../../styles/img/top_of_head.png';
+import image4 from './../../styles/img/bottom_of_head.png';
+
 const LEVEL_NAMES = ['EASY', 'MEDIUM', 'HARD'];
 const MAIN = document.querySelector('#main-wrap');
 
@@ -39,6 +42,9 @@ const createHTMLStructure = () => {
     backToCategoryPageButton.textContent = 'BACK';
     backToCategoryPageButton.setAttribute('onclick', "window.location.href='#main-wrap'");
     confirmLevelButton.textContent = "LET'S PLAY!";
+
+    createIMG(image3, levelScreenWrapper, 'headTop');
+    createIMG(image4, levelScreenWrapper, 'headBottom');
 };
 const createDOMElement = function (type, className, parent, text = '') {
     const newElement = document.createElement(type);
@@ -75,4 +81,11 @@ const updateSettings = (quizSettings) => {
         quizSettings.numberOfQuestion = selectedNbrOfQuestions;
         MAIN.innerHTML = '';
     });
+};
+
+export const createIMG = (imgID, parent, className) => {
+    const img = document.createElement('img');
+    img.className = className;
+    img.src = imgID;
+    parent.appendChild(img);
 };

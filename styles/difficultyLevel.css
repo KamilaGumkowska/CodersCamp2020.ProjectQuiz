@@ -25,7 +25,6 @@
     margin: 0 3%;
 }
 
-
 input[type='range']::-moz-range-thumb,
 input[type='range']::-webkit-slider-thumb {
     border: 1px solid #000000;
@@ -45,7 +44,7 @@ input[type='range']::-webkit-slider-thumb {
     justify-content: space-around;
     width: 85%;
     padding: 0px 10px;
-    margin-top: 2%;
+    /* margin-top: 2%; */
     height: 30%;
 }
 
@@ -77,7 +76,7 @@ input[type='range']::-webkit-slider-thumb {
     position: absolute;
     border-radius: 4px;
     border: 3px solid var(--yellow);
-    top: -250%;
+    bottom: 20px;
     transform: translateX(-50%);
 }
 
@@ -94,7 +93,7 @@ input[type='range']::-webkit-slider-thumb {
 .buttonsContainer * {
     box-sizing: border-box;
     height: auto;
-    width: 30%;
+    width: 32%;
     margin: 0 4%;
     font-size: 1.5rem;
 }
@@ -107,6 +106,19 @@ input[type='range']::-webkit-slider-thumb {
     font-style: normal;
     letter-spacing: 0em;
     text-align: center;
+}
+
+.headTop {
+    position: absolute;
+    top: 0;
+    right: 5%;
+    width: 25%;
+}
+.headBottom {
+    position: absolute;
+    bottom: 0;
+    right: 5%;
+    width: 22.5%;
 }
 
 @media (max-width: 800px) {
@@ -126,11 +138,26 @@ input[type='range']::-webkit-slider-thumb {
         font-size: 10px;
     } */
     .levelScreenWrapper {
-        margin: 20% 0;
-        height: 70%;
+        /* margin: 15% 0; */
+        /* height: 90%; */
         padding-right: 0;
+    }
+    .numberOfQuestionsContainer, .levelContainer{
+        height: 40%;
     }
     .numberOfQuestionsInputWrapper {
         height: 15%;
+    }
+    .headTop {
+        right: 38%;
+    }
+    .headBottom {
+        right: 38%;
+    }
+    #main-wrap{
+        padding: 20% 0 ;
+    }
+    .bubble{
+        bottom:30px;
     }
 }
