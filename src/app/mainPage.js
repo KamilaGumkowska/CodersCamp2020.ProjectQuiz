@@ -1,5 +1,6 @@
 import image1 from './../../styles/img/img1.png';
 import image2 from './../../styles/img/img2.png';
+import {createGameScreen} from './game.js';
 
 export function showMainMenu() {
     createMainMenuStructure();
@@ -84,20 +85,20 @@ function createMainMenuStructure() {
 
     optionsWrap.appendChild(optionsBtn);
 
-    singleBtn.addEventListener('click', goToSingle);
+    singleBtn.addEventListener('click', goToSingle);    
     multiBtn.addEventListener('click', goToMulti);
-}
 
-function hideStartScreen() {
-    startWrap.style.visibility = 'hidden';
-}
+    function hideStartScreen() {
+        startWrap.style.visibility = 'hidden';
+    }
 
-function goToSingle() {
-    hideStartScreen();
-    // start function for the single game
-}
+    function goToSingle() {
+        hideStartScreen();
+        createGameScreen();
+    }
 
-function goToMulti() {
-    hideStartScreen();
-    // start function for the multi game
+    function goToMulti() {
+        hideStartScreen();
+        // start function for the multi game
+    }
 }
