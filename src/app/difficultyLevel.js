@@ -34,10 +34,10 @@ const createHTMLStructure = () => {
         createDOMElement('p', 'levelLabel font', levelLabelsContainer, LEVEL_NAMES[index]);
     });
     let buttonsContainer = createDOMElement('div', 'buttonsContainer', levelScreenWrapper);
-    let backToCategoryPageButton = createDOMElement('button', 'backToCategoryPageButton font', buttonsContainer);
-    let confirmLevelButton = createDOMElement('button', 'confirmLevelButton font', buttonsContainer);
+    let backToCategoryPageButton = createDOMElement('button', 'backToCategoryPageButton btn primary', buttonsContainer);
+    let confirmLevelButton = createDOMElement('button', 'confirmLevelButton btn primary', buttonsContainer);
     backToCategoryPageButton.textContent = 'BACK';
-    backToCategoryPageButton.setAttribute('onclick', "window.location.href='#quiz-app'");
+    backToCategoryPageButton.setAttribute('onclick', "window.location.href='#main-wrap'");
     confirmLevelButton.textContent = "LET'S PLAY!";
 };
 const createDOMElement = function (type, className, parent, text = '') {
@@ -63,7 +63,7 @@ function setBubble(range, bubble) {
     const max = range.max ? range.max : 100;
     const newVal = Number(((val - min) * 100) / (max - min));
     bubble.innerHTML = val;
-    bubble.style.left = `calc(${newVal}% + (${13 - newVal * 0.2}px))`;
+    bubble.style.left = `calc(${newVal}% + (${6 - newVal * 0.12}%))`;
 }
 
 const updateSettings = (quizSettings) => {
@@ -73,5 +73,6 @@ const updateSettings = (quizSettings) => {
         let selectedNbrOfQuestions = document.querySelector('.numberOfQuestions').value;
         quizSettings.difficultyLevel = selectedLevel;
         quizSettings.numberOfQuestion = selectedNbrOfQuestions;
+        MAIN.innerHTML = '';
     });
 };
