@@ -1,6 +1,6 @@
 import topPart from './../../styles/img/head.png';
 import bottomPart from './../../styles/img/bottom.png';
-
+import {quizSettings} from './App';
 export function createGameScreen() {
      fetchQuizQuestions();
      game();
@@ -20,7 +20,7 @@ let difficultyLevel = "hard"
 
 
 async function fetchQuizQuestions() {
-    await fetch(`https://opentdb.com/api.php?amount=${amountOfQuestions}&category=${categoryNumber}&difficulty=${difficultyLevel}`)
+    await fetch(`https://opentdb.com/api.php?amount=${amountOfQuestions}&category=${quizSettings.category}&difficulty=${difficultyLevel}`)
         .then(res => {
             return res.json();
         })
