@@ -3,7 +3,7 @@ import { showMainMenu } from './mainPage';
 import {createGameScreen} from './game';
 
 export const quizSettings = {
-    category: 23,
+    category: 17,
     difficultyLevel: 'hard',
     numberOfQuestions: 20,
 };

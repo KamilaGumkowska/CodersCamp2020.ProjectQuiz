@@ -1,10 +1,12 @@
 import topPart from './../../styles/img/head.png';
 import bottomPart from './../../styles/img/bottom.png';
 import {quizSettings} from './App';
+import {myTimer} from './timer'
 export function createGameScreen() {
      fetchQuizQuestions();
      game();
      createHtml();
+     myTimer();
 }
 
 
@@ -13,14 +15,11 @@ let questions = [];
 let currentQuestion = {};
 let numberOfQuestions = 0;
 let availableQuestions = [];
-let level = "Hard";
-let amountOfQuestions = 20;
-let categoryNumber = 11;
-let difficultyLevel = "hard"
+let level;
 
 
 async function fetchQuizQuestions() {
-    await fetch(`https://opentdb.com/api.php?amount=${amountOfQuestions}&category=${quizSettings.category}&difficulty=${difficultyLevel}`)
+    await fetch(`https://opentdb.com/api.php?amount=${quizSettings.numberOfQuestions}&category=${quizSettings.category}&difficulty=${quizSettings.difficultyLevel}`)
         .then(res => {
             return res.json();
         })
@@ -58,7 +57,6 @@ async function game () {
 
     function startGame () {
         numberOfQuestions = 0;
-        // score = 0;
         availableQuestions = [...questions];
         getAnotherQuestion();
     }
@@ -67,8 +65,9 @@ async function game () {
         numberOfQuestions++;
         const questionIndex = Math.floor(Math.random() * availableQuestions.length);
         currentQuestion = availableQuestions[questionIndex];
-        availableQuestions.splice(questionIndex, 1);
+        availableQuestions.splice(questionIndex, 1);  
     }
+
     function ifTrueOrFalse () {
         if(!currentQuestion.answer2 || !currentQuestion.answer3) {
             document.getElementById("third-option").style.display = "none";
@@ -134,13 +133,17 @@ async function game () {
                 ifTrueOrFalse();
                 addEventListeners();
             })
+            if (availableQuestions.length === 0) {
+                answer.addEventListener('click', (e)=> {
+                    return window.location.assign('end'); //podmienić
+                })
+            }
         })
     }
 
     function addQuitEventListener () {
         const QUIBUTTON = document.getElementById("quit");
         QUIBUTTON.addEventListener('click', (e) => {
-            console.log("Quit click!");
             return window.location.assign('end');
         })
     }
