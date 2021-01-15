@@ -1,5 +1,6 @@
 import { showDifficultyLevelScreen } from './difficultyLevel';
 import { showMainMenu } from './mainPage';
+import {showOptionsScreen} from './optionsScreen';
 
 export const quizSettings = {
     category: 0,
@@ -8,6 +9,6 @@ export const quizSettings = {
 };
 
 export const App = ({}) => {
-    // showMainMenu();
-    showDifficultyLevelScreen(quizSettings);
+    showMainMenu();
+    // showDifficultyLevelScreen(quizSettings);
 };

@@ -9,7 +9,7 @@ export function showDifficultyLevelScreen(quizSettings) {
     currentNumberOfQuestions();
     updateSettings(quizSettings);
 }
-const createDOMElement = (type, className, parent, text = '') => {
+export const createDOMElement = (type, className, parent, text = '') => {
     const newElement = document.createElement(type);
     newElement.className = className;
     newElement.innerText = text;
@@ -89,7 +89,7 @@ const createButtonsSection = (parent) => {
     confirmLevelButton.textContent = "LET'S PLAY!";
 };
 
-const createImageSection = (parent) => {
+export const createImageSection = (parent) => {
     createIMG(topOfHeadImage, parent, 'headTop');
     createIMG(bottomOfHeadImage, parent, 'headBottom');
 };
