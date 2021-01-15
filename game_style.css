@@ -30,8 +30,8 @@ body {
     text-align: center;
 }
 .answer {
-    width: 35vw;
-    height: 10vh;
+    width: 40vw;
+    height: 12vh;
     border: 3px solid white;
     border-radius: 50px;
     cursor: pointer;

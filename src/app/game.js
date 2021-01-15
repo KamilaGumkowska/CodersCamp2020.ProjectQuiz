@@ -65,6 +65,7 @@ async function game() {
         const questionIndex = Math.floor(Math.random() * availableQuestions.length);
         currentQuestion = availableQuestions[questionIndex];
         availableQuestions.splice(questionIndex, 1);
+        myTimer();
     }
 
     function ifTrueOrFalse() {
@@ -134,7 +135,7 @@ async function game() {
             });
             if (availableQuestions.length === 0) {
                 answer.addEventListener('click', (e) => {
-                    return window.location.assign('end'); //podmienić
+                    return window.location.assign('quiz'); //podmienić
                 });
             }
         });
@@ -143,7 +144,7 @@ async function game() {
     function addQuitEventListener() {
         const QUIBUTTON = document.getElementById('quit');
         QUIBUTTON.addEventListener('click', (e) => {
-            return window.location.assign('end');
+            return window.location.assign('quiz');
         });
     }
 
