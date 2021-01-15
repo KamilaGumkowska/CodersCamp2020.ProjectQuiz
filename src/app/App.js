@@ -8,6 +8,6 @@ export const quizSettings = {
 };
 
 export const App = ({}) => {
-    showMainMenu();
-    //showDifficultyLevelScreen(quizSettings);
+    // showMainMenu();
+    showDifficultyLevelScreen(quizSettings);
 };
