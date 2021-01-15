@@ -21,48 +21,55 @@ let timePassed = 0;
 let timeLeft = TIME_LIMIT;
 let timerInterval;
 
-export function myTimer() {
-    function formatTime(timeLeft) {
-        let seconds = timeLeft % 60;
-        if (seconds < 10) {
-            seconds = `0${seconds}`;
+function formatTime(timeLeft) {
+    let seconds = timeLeft % 60;
+    if (seconds < 10) {
+        seconds = `0${seconds}`;
+    }
+    return seconds;
+}
+
+export function startTimer() {
+    document.getElementById('app').innerHTML = ``;
+    setHTML();
+    timePassed = 0;
+    clearInterval(timerInterval);
+    timerInterval = setInterval(() => {
+        timePassed = timePassed += 1;
+        timeLeft = TIME_LIMIT - timePassed;
+        if (timeLeft < 0) {
+            return window.location.assign('quiz');
         }
-        return seconds;
+        document.getElementById('timerLabel').innerHTML = formatTime(timeLeft);
+        setCircleDasharray();
+        setRemainingPathColor(timeLeft);
+    }, 1000);
+    return;
+}
+
+function calculateTimeFraction() {
+    const rawTimeFraction = timeLeft / TIME_LIMIT;
+    return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
+}
+
+function setCircleDasharray() {
+    const circleDasharray = `${(calculateTimeFraction() * 283).toFixed(0)} 283`;
+    document.getElementById('timerPathRemaining').setAttribute('stroke-dasharray', circleDasharray);
+}
+
+function setRemainingPathColor(time) {
+    const { alert, warning, info } = COLOR_CODES;
+    if (time <= alert.threshold) {
+        document.getElementById('timerPathRemaining').classList.remove(warning.color);
+        document.getElementById('timerPathRemaining').classList.add(alert.color);
+    } else if (time <= warning.threshold) {
+        document.getElementById('timerPathRemaining').classList.remove(info.color);
+        document.getElementById('timerPathRemaining').classList.add(warning.color);
     }
-    function startTimer() {
-        clearInterval(timerInterval);
-        timerInterval = setInterval(() => {
-            timePassed = timePassed += 1;
-            timeLeft = TIME_LIMIT - timePassed;
-            if (timeLeft < 0) {
-                return window.location.assign('quiz');
-            }
-            document.getElementById('timerLabel').innerHTML = formatTime(timeLeft);
-            setCircleDasharray();
-            setRemainingPathColor(timeLeft);
-        }, 1000);
-        return;
-    }
-    function calculateTimeFraction() {
-        const rawTimeFraction = timeLeft / TIME_LIMIT;
-        return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
-    }
-    function setCircleDasharray() {
-        const circleDasharray = `${(calculateTimeFraction() * 283).toFixed(0)} 283`;
-        document.getElementById('timerPathRemaining').setAttribute('stroke-dasharray', circleDasharray);
-    }
-    function setRemainingPathColor(time) {
-        const { alert, warning, info } = COLOR_CODES;
-        if (time <= alert.threshold) {
-            document.getElementById('timerPathRemaining').classList.remove(warning.color);
-            document.getElementById('timerPathRemaining').classList.add(alert.color);
-        } else if (time <= warning.threshold) {
-            document.getElementById('timerPathRemaining').classList.remove(info.color);
-            document.getElementById('timerPathRemaining').classList.add(warning.color);
-        }
-    }
-    function setHTML() {
-        document.getElementById('app').innerHTML = `
+}
+
+function setHTML() {
+    document.getElementById('app').innerHTML = `
   <div class = "timerContainer">
     <svg class = "base-timer__svg" viewBox = "0 0 100 100" xmlns = "http://www.w3.org/2000/svg">
       <g class = "timerCircle">
@@ -82,7 +89,4 @@ export function myTimer() {
     <span id = "timerLabel" class = "timerLabel">
     </span>
   </div>`;
-    }
-    setHTML();
-    startTimer();
 }

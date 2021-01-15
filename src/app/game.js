@@ -1,12 +1,13 @@
 import topPart from './../../styles/img/head.png';
 import bottomPart from './../../styles/img/bottom.png';
 import { quizSettings } from './App';
-import { myTimer } from './timer';
+import { startTimer } from './timer';
+
+const MULTIPLE_CHOICE_ANSWERS_NUMBER = 4;
+
 export function createGameScreen() {
-    fetchQuizQuestions();
     game();
     createHtml();
-    myTimer();
 }
 
 let currentIcon;
@@ -24,26 +25,32 @@ async function fetchQuizQuestions() {
             return res.json();
         })
         .then((loadedQuestions) => {
-            questions = loadedQuestions.results.map((loadedQ) => {
-                const receivedOutput = {
-                    question: loadedQ.question,
-                    category: loadedQ.category,
-                    difficulty: loadedQ.difficulty,
-                };
-                const receivedAnswers = [...loadedQ.incorrect_answers];
-                receivedOutput.answer = Math.floor(Math.random() * 3) + 1;
-                receivedAnswers.splice(receivedOutput.answer - 1, 0, loadedQ.correct_answer);
-
-                receivedAnswers.forEach((choice, index) => {
-                    receivedOutput['answer' + index] = choice;
+            loadedQuestions.results.forEach((question) => {
+                const arrayToShuffle = [question.correct_answer, ...question.incorrect_answers];
+                questions.push({
+                    question: question.question,
+                    category: question.category,
+                    difficulty: question.difficulty,
+                    correct_answer: question.correct_answer,
+                    answers: shuffleAnswers(arrayToShuffle),
                 });
-                return receivedOutput;
             });
         })
         .catch((err) => {
             console.error(err);
         });
 }
+
+function shuffleAnswers(arrayToShuffle) {
+    for (let i = arrayToShuffle.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * i);
+        const temp = arrayToShuffle[i];
+        arrayToShuffle[i] = arrayToShuffle[j];
+        arrayToShuffle[j] = temp;
+    }
+    return arrayToShuffle;
+}
+
 async function game() {
     await fetchQuizQuestions();
     startGame();
@@ -65,11 +72,11 @@ async function game() {
         const questionIndex = Math.floor(Math.random() * availableQuestions.length);
         currentQuestion = availableQuestions[questionIndex];
         availableQuestions.splice(questionIndex, 1);
-        // myTimer();
+        startTimer();
     }
 
     function ifTrueOrFalse() {
-        if (!currentQuestion.answer2 || !currentQuestion.answer3) {
+        if (currentQuestion.answers.length < MULTIPLE_CHOICE_ANSWERS_NUMBER) {
             document.getElementById('third-option').style.display = 'none';
             document.getElementById('fourth-option').style.display = 'none';
         }
@@ -107,16 +114,16 @@ async function game() {
             <h3>Question <img src="${currentIcon}" alt="${currentQuestion.category}"/></h3>
             <p id="question-asked">${currentQuestion.question}</p>
             <div class="answer">
-                <p>${currentQuestion.answer0}</p>
+                <p>${currentQuestion.answers[0]}</p>
             </div>
             <div class="answer">
-                <p>${currentQuestion.answer1}</p>
+                <p>${currentQuestion.answers[1]}</p>
             </div>
             <div class="answer" id="third-option">
-                <p>${currentQuestion.answer2}</p>
+                <p>${currentQuestion.answers[2]}</p>
             </div>
             <div class="answer" id="fourth-option">
-                <p>${currentQuestion.answer3}</p>
+                <p>${currentQuestion.answers[3]}</p>
             </div>
             <div id="level" class="level">
                 <p>level ${level}</p>
