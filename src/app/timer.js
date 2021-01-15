@@ -20,6 +20,7 @@ let remainingPathColor = COLOR_CODES.info.color;
 let timePassed = 0;
 let timeLeft = TIME_LIMIT;
 let timerInterval;
+
 export function myTimer() {
     function formatTime(timeLeft) {
         let seconds = timeLeft % 60;
@@ -40,6 +41,7 @@ export function myTimer() {
             setCircleDasharray();
             setRemainingPathColor(timeLeft);
         }, 1000);
+        return;
     }
     function calculateTimeFraction() {
         const rawTimeFraction = timeLeft / TIME_LIMIT;
@@ -59,8 +61,8 @@ export function myTimer() {
             document.getElementById('timerPathRemaining').classList.add(warning.color);
         }
     }
-
-    document.getElementById('app').innerHTML = `
+    function setHTML() {
+        document.getElementById('app').innerHTML = `
   <div class = "timerContainer">
     <svg class = "base-timer__svg" viewBox = "0 0 100 100" xmlns = "http://www.w3.org/2000/svg">
       <g class = "timerCircle">
@@ -80,5 +82,7 @@ export function myTimer() {
     <span id = "timerLabel" class = "timerLabel">
     </span>
   </div>`;
+    }
+    setHTML();
     startTimer();
 }

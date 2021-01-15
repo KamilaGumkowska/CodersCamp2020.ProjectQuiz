@@ -65,7 +65,7 @@ async function game() {
         const questionIndex = Math.floor(Math.random() * availableQuestions.length);
         currentQuestion = availableQuestions[questionIndex];
         availableQuestions.splice(questionIndex, 1);
-        myTimer();
+        // myTimer();
     }
 
     function ifTrueOrFalse() {
@@ -123,7 +123,6 @@ async function game() {
             </div>
         `;
     }
-
     function addEventListeners() {
         const ANSWERS = Array.from(document.getElementsByClassName('answer'));
         ANSWERS.forEach((answer) => {
