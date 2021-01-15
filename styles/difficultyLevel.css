@@ -15,7 +15,7 @@
 
 #numberOfQuestionsInput,
 .differenceLevel {
-    border: 1px solid #000000;
+    border: 1px solid var(--white);
     height: 7px;
     width: 94%;
     border-radius: 3px;
@@ -26,8 +26,9 @@
 }
 
 input[type='range']::-moz-range-thumb,
-input[type='range']::-webkit-slider-thumb {
-    border: 1px solid #000000;
+input[type='range']::-webkit-slider-thumb
+ {
+    border: 3px solid var(--yellow);
     height: 300%;
     /* height: 20px; */
     width: 5%;
@@ -43,12 +44,17 @@ input[type='range']::-webkit-slider-thumb {
     flex-direction: column;
     justify-content: space-around;
     width: 85%;
-    padding: 0px 10px;
+    padding: 0 15px;
     /* margin-top: 2%; */
     height: 30%;
 }
-
-.numberOfQuestionsContainer p {
+.levelContainer{
+    padding: 3% 15px;
+}
+.numberOfQuestionsContainer{
+    padding-bottom:3%;
+}
+.numberOfQuestionsContainer p, .levelContainer>p {
     text-align: center;
     margin: 0;
     font-weight: 900;
@@ -142,7 +148,8 @@ input[type='range']::-webkit-slider-thumb {
         /* height: 90%; */
         padding-right: 0;
     }
-    .numberOfQuestionsContainer, .levelContainer{
+    .numberOfQuestionsContainer,
+    .levelContainer {
         height: 40%;
     }
     .numberOfQuestionsInputWrapper {
@@ -154,10 +161,10 @@ input[type='range']::-webkit-slider-thumb {
     .headBottom {
         right: 38%;
     }
-    #main-wrap{
-        padding: 20% 0 ;
+    #main-wrap {
+        padding: 15% 0 20% 0;
     }
-    .bubble{
-        bottom:30px;
+    .bubble {
+        bottom: 30px;
     }
 }
