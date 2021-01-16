@@ -5,7 +5,7 @@ import { createImageSection } from './difficultyLevel';
 import { createDOMElement } from './difficultyLevel';
 
 const MAIN = document.querySelector('#main-wrap');
-
+export let defaultNickFromOptions;
 export function showOptionsScreen() {
     createHTMLStructure();
 }
@@ -22,13 +22,20 @@ const createOptions = (parent) => {
     let OptionsButtonsContainer = createDOMElement('div', 'OptionsButtonsContainer', parent);
     let resetLeaderboard = createDOMElement(
         'button',
-        'resetLeaderboard btn secondary optionButton optionButton',
+        'resetLeaderboard btn secondary optionButton OptionFont',
         OptionsButtonsContainer,
     );
-    let musicButton = createDOMElement('button', 'musicButton btn secondary optionButton', OptionsButtonsContainer);
+    let musicButton = createDOMElement(
+        'button',
+        'musicButton btn secondary optionButton OptionFont',
+        OptionsButtonsContainer,
+    );
     resetLeaderboard.textContent = 'RESET LEADERBOARD';
     musicButton.textContent = 'MUSIC';
-    resetLeaderboard.addEventListener('click', console.log('RESET LEADERBOARD'));
+    resetLeaderboard.addEventListener('click', () => {
+        console.log('RESET LEADERBOARD');
+        localStorage.setItem = 'test local storage';
+    });
     musicButton.addEventListener('click', switchMusic);
     createNickInput(parent);
 };
@@ -36,9 +43,15 @@ const createOptions = (parent) => {
 const createNickInput = (parent) => {
     let nickContainer = createDOMElement('div', 'nickContainer', parent);
     createNickParagraph(nickContainer);
-    createDOMElement('input', 'nickInput', nickContainer);
+    let nickInput = createDOMElement('input', 'nickInput', nickContainer);
     let nickSubmit = createDOMElement('button', 'nickSubmit btn teritary optionButton', nickContainer);
     nickSubmit.innerHTML = 'SUBMIT';
+    nickSubmit.addEventListener('click', () => {
+        let nickInput = document.querySelector('.nickInput');
+        defaultNickFromOptions = nickInput.value;
+        console.log('Mateusz, ' + defaultNickFromOptions);
+        nickInput.value = '';
+    });
 };
 
 const createNickParagraph = (parent) => {
@@ -47,7 +60,11 @@ const createNickParagraph = (parent) => {
 
 const createBackButton = (parent) => {
     let backButtonContainer = createDOMElement('div', 'backButtonContainer', parent);
-    let backToMainPageButton = createDOMElement('button', 'backToMainPageButton btn primary', backButtonContainer);
+    let backToMainPageButton = createDOMElement(
+        'button',
+        'backToMainPageButton btn primary OptionFont',
+        backButtonContainer,
+    );
     backToMainPageButton.textContent = 'BACK';
     backToMainPageButton.addEventListener('click', goToMain);
 };

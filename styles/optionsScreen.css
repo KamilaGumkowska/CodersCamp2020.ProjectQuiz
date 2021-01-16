@@ -33,16 +33,25 @@
     font-style: italic;
     font-size: 1.5rem;
 }
-.nickContainer{
+.nickContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.optionButton.nickSubmit{
+.optionButton.nickSubmit {
     margin: 2% 0;
 }
+.optionButton {
+    width: 100%;
+}
 
+.OptionFont {
+    font-size: 1.2rem;
+    font-style: normal;
+    letter-spacing: 0em;
+    text-align: center;
+}
 
 @media (max-width: 520px) {
     .optionsScreen {
