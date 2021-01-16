@@ -1,5 +1,3 @@
-import topOfHeadImage from './../../styles/img/top_of_head.png';
-import bottomOfHeadImage from './../../styles/img/bottom_of_head.png';
 import { showMainMenu } from './mainPage';
 import { createImageSection } from './difficultyLevel';
 import { createDOMElement } from './difficultyLevel';
@@ -14,7 +12,6 @@ export function showOptionsScreen() {
 const createHTMLStructure = () => {
     MAIN.innerHTML = '';
     let optionsScreen = createDOMElement('div', 'optionsScreen', MAIN);
-    // let optionsWrapper = createDOMElement('div', 'optionsWrapper', optionsScreen);
     createOptions(optionsScreen);
     createBackButton(optionsScreen);
     createImageSection(optionsScreen);
@@ -44,7 +41,8 @@ const createOptions = (parent) => {
 const createNickInput = (parent) => {
     let nickContainer = createDOMElement('div', 'nickContainer', parent);
     createNickParagraph(nickContainer);
-    let nickInput = createDOMElement('input', 'nickInput', nickContainer);
+    let nickInput = createDOMElement('input', 'nickInput btn secondary OptionFont', nickContainer);
+    nickInput.setAttribute('placeholder','YOUR NICKNAME');
     let nickSubmit = createDOMElement('button', 'nickSubmit btn teritary optionButton', nickContainer);
     nickSubmit.innerHTML = 'SUBMIT';
     nickSubmit.addEventListener('click', () => {
@@ -78,9 +76,9 @@ const switchMusic = () => {
     } else {
         music.playMusic();
         musicButton.textContent = 'MUSIC ON';
-
     }
 };
+
 const goToMain = () => {
     MAIN.innerHTML = '';
     showMainMenu();
