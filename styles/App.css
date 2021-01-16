@@ -119,6 +119,7 @@ h2 {
     border-radius: 200px;
     color: var(--white);
     padding: 20px 90px;
+    margin: 0 20px;
     font-weight: 700;
     font-size: 20px;
     text-transform: uppercase;
@@ -151,7 +152,7 @@ h2 {
     font-size: 15px;
     border: none;
     padding: 0;
-    margin: 50px;
+    margin: 50px 50px;
     color: var(--yellow);
     font-weight: 700;
     letter-spacing: 5px;
@@ -165,13 +166,15 @@ h2 {
 img.headimg {
     position: absolute;
     width: 40vw;
-    bottom: 5vh;
-    right: 3vw;
+    top: 10%;
+    right: 0;
     pointer-events: none;
+    visibility: visible;
 }
 
 img.blueimg {
     position: absolute;
     width: 40vw;
     pointer-events: none;
+    visibility: visible;
 }
