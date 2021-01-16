@@ -1,4 +1,9 @@
 const MAIN = document.querySelector('#swquiz-app');
+let selectedCat;
+const category = [];
+const anchorTable = [];
+const categoryName = ['SCIENCE & NATURE', 'ART', 'SPORT', 'MUSIC', 'COMPUTERS', 'GENERAL KNOWLEDGE'];
+const categoryClass = ['bg one', 'bg two', 'bg three', 'bg four', 'bg five', 'bg six'];
 const quizSettings = {
     category: 0,
     difficultyLevel: -1,
@@ -12,96 +17,46 @@ const createDOMElement = function (type, className, parent, text = '') {
     return newElement;
 };
 
-aTable = []
-for(i=0; i<6;i++) {
-    aTable[i] = createDOMElement('a', 'a', MAIN)  
+const createParents = function () {
+    for (i = 0; i < 8; i++) {
+        anchorTable[i] = createDOMElement('a', 'a', MAIN);
+    }
+};
+createParents();
+
+const showCategories = function () {
+    for (i = 0; i < categoryName.length; i++) {
+        category[i] = createDOMElement('div', categoryClass[i], anchorTable[i], categoryName[i]);
+    }
+};
+showCategories();
+
+const showNavigation = function () {
+    quitButton = createDOMElement('button', 'bg btn quit', anchorTable[6], 'BACK');
+    submitButton = createDOMElement('button', 'bg btn submit', anchorTable[7], 'NEXT');
+};
+showNavigation();
+
+const addCategoryEventListeners = function () {
+    for (let i = 0; i < category.length; i++) {
+        category[i].addEventListener('click', () => {
+            if (selectedCat > 0) {
+                category[selectedCat - 1].style.backgroundColor = 'rgba(0,0,0,0)'; // unclicked
+            }
+            selectedCat = i + 1;
+            console.log(selectedCat);
+            category[i].style.backgroundColor = '#FDB813'; //clicked
+        });
+    }
+};
+addCategoryEventListeners();
+
+const quiteModule= function() {
+    quizSettings.category = selectedCat;
+    //submitButton.addEventListener('click', showDifficultyLevelScreen(quizSettings); )// wywołanie funkcji Mateusza
+   // quitButton.addEventListener('click', ...) // powrót na mainPage
 }
-
-const category = []
-category[0] = createDOMElement('div', 'bg one', aTable[0], 'SCIENCE & NATURE');
-category[1] =createDOMElement('div', 'bg two', aTable[1], 'ART');
-category[2]=createDOMElement('div', 'bg three', aTable[2], 'SPORT');
-category[3]=createDOMElement('div', 'bg four', aTable[3], 'MUSIC');
-category[4] =createDOMElement('div', 'bg five', aTable[4], 'COMPUTERS');
-category[5] =createDOMElement('div', 'bg six', aTable[5], 'GENERAL KNOWLEDGE');
+quiteModule();
 
 
-quitBtn= createDOMElement('button', 'quit', MAIN, 'Back')
-//but1 = createDOMElement('button', 'bg one', category[0], 'SCIENCE & NATURE');
-//but1.setAttribute("onlick", "select()");
 
-select = e => e.target.backgroundImage = none;
-
-let selectedCat;
-let counter;
-category[0].addEventListener('click', () => {
-    if (selectedCat >0)
-    {
-    category[selectedCat -1].style.backgroundColor = "rgba(0,0,0,0)";
-    }
-    selectedCat = 1
-    console.log(selectedCat);
-    category[0].style.backgroundColor =  "#FDB813";
-    //category[0].style.backgroundImage = none;
-    //category[selectedCat].style.backgroundColor = none; // nic nie daje
-});
-category[1].addEventListener('click', () => {
-    if (selectedCat >0)
-    {
-    category[selectedCat-1].style.backgroundColor = "rgba(0,0,0,0)";
-    }
-    selectedCat = 2
-    console.log(selectedCat);   
-    category[1].style.backgroundColor =  "#FDB813";
-    // nic nie daje
-}); 
-category[2].addEventListener('click', () => {
-    if (selectedCat >0)
-    {
-    category[selectedCat-1].style.backgroundColor = "rgba(0,0,0,0)";
-    }
-    selectedCat = 3
-    console.log(selectedCat);   
-    category[2].style.backgroundColor =  "#FDB813";
-}); 
-category[3].addEventListener('click', () => {
-    if (selectedCat >0)
-    {
-    category[selectedCat-1].style.backgroundColor = "rgba(0,0,0,0)";
-    }
-    selectedCat = 4
-    console.log(selectedCat);   
-    category[3].style.backgroundColor =  "#FDB813";
-}); 
-category[4].addEventListener('click', () => {
-    if (selectedCat >0)
-    {
-    category[selectedCat-1].style.backgroundColor = "rgba(0,0,0,0)";
-    }
-    selectedCat = 5
-    console.log(selectedCat);   
-    category[4].style.backgroundColor =  "#FDB813";
-}); 
-category[5].addEventListener('click', () => {
-    if (selectedCat >0)
-    {
-    category[selectedCat-1].style.backgroundColor = "rgba(0,0,0,0)";
-    }
-    selectedCat = 6
-    console.log(selectedCat);   
-    category[5].style.backgroundColor =  "#FDB813";
-}); 
-
-submitBtn = createDOMElement('button', 'submit', MAIN, 'PRZEJDŹ DALEJ');
-
-/*if (selectedCat > 0)
-{
-    submitBtn.classList.add('hide');
-} */
-
-quizSettings.category = selectedCat;
-console.log(selectedCat);
-
-//MAIN.addEventListener('click', (e) => console.log(e.className))
-
-//showDifficultyLevelScreen(quizSettings);
