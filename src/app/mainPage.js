@@ -4,14 +4,16 @@ import { showDifficultyLevelScreen } from './difficultyLevel.js'; //for single b
 // import {  } from ''; for multi btn
 // import {  } from ''; for leaderboard btn
 // import {  } from ''; for options btn
-// import {  } from ''; for credits btn
+import { showCredits } from './credits.js';
 
 export function showMainMenu() {
     createMainMenuStructure();
 }
 
+const mainWrap = document.getElementById('main-wrap');
+
 function createMainMenuStructure() {
-    const mainWrap = document.getElementById('main-wrap');
+    mainWrap.innerHTML = '';
 
     const startWrap = document.createElement('div');
     startWrap.id = 'startwrap';
@@ -41,15 +43,15 @@ function createMainMenuStructure() {
     goToScreenOnClick(singleBtn, showDifficultyLevelScreen);
     // goToScreenOnClick(multiBtn, showMulti);
     // goToScreenOnClick(leaderBtn, showLeader);
-    // goToScreenOnClick(creditsBtn, showCredits);
+    goToScreenOnClick(creditsBtn, showCredits);
     // goToScreenOnClick(optionsBtn, showOptions);
 }
 
-function goToScreenOnClick(btnName, showScreen) {
+export function goToScreenOnClick(btnName, showScreen) {
     btnName.addEventListener('click', showScreen);
 }
 
-function createNewElement(tag, className, parent, text = '') {
+export function createNewElement(tag, className, parent, text = '') {
     const newElement = document.createElement(tag);
     newElement.className = className;
     newElement.innerHTML = text;
@@ -57,7 +59,7 @@ function createNewElement(tag, className, parent, text = '') {
     return newElement;
 }
 
-function createNewImgElement(className, source, parent) {
+export function createNewImgElement(className, source, parent) {
     const newImgElement = document.createElement('img');
     newImgElement.className = className;
     newImgElement.src = source;
