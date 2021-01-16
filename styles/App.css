@@ -1,0 +1,180 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Poppins, serif;
+}
+
+
+
+:root {
+    --black: #323232;
+    --yellow: #FDB813;
+    --white: #F8F8F8;
+}
+
+body {
+    background-color: var(--black);
+    color: var(--white);
+}
+#main-wrap{
+    width: 100vw;
+    height: 100vh;
+}
+
+#startwrap {
+    display: grid;
+    grid-template-areas: 
+        "game"
+        "leader";
+    grid-template-rows: 4fr 1fr;
+    justify-items: center;
+    align-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.main-game {
+    grid-area: game;
+    align-self: flex-end;
+    margin-bottom: 5rem;
+    display: grid;
+    grid-template-areas: 
+        "h1 h1"
+        "h2 h2"
+        "btn1 btn2";
+    justify-items: center;
+}
+
+.leaderboard-wrap {
+    grid-area: leader;
+    display: grid;
+    grid-template-areas: 
+        "title"
+        "btn";
+    justify-items: center;
+    align-self: center;
+}
+
+.title {
+    grid-area: h1;
+}
+
+.subtitle {
+    grid-area: h2;
+}
+
+.main-game .single {
+    grid-area: btn1;
+}
+
+.main-game .multi {
+    grid-area: btn2;
+}
+
+.leaderboard-wrap .subtitle {
+    grid-area: title;
+}
+
+.leaderboard-wrap .btn {
+    grid-area: btn;
+}
+
+.credits-wrap {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.options-wrap {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+h1 {
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+    font-size: 100px;
+    text-align: center;
+}
+
+h2 {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 20px;
+    color: var(--yellow);
+    letter-spacing: 5px;
+}
+
+.main-game h2.subtitle {
+    margin-bottom: 5rem;
+}
+
+.leaderboard-wrap h2.subtitle {
+    margin-bottom: 1rem;
+}
+
+.btn {
+    background-color: transparent;
+    border: 5px solid var(--white);
+    border-radius: 200px;
+    color: var(--white);
+    padding: 20px 90px;
+    font-weight: 700;
+    font-size: 20px;
+    text-transform: uppercase;
+    transition: ease-in 0.2s;
+}
+
+.btn:hover {
+    background-color: var(--white);
+    color: var(--black);
+    cursor: pointer;
+    
+}
+
+.btn:focus {
+    outline: 0;
+}
+
+.btn.secondary {
+    border: 5px solid var(--yellow);
+    padding: 10px 60px;
+    color: var(--yellow);
+}
+
+.btn.secondary:hover {
+    background-color: var(--yellow);
+    color: var(--black);
+}
+
+.btn.teritary {
+    font-size: 15px;
+    border: none;
+    padding: 0;
+    margin: 50px;
+    color: var(--yellow);
+    font-weight: 700;
+    letter-spacing: 5px;
+}
+
+.btn.teritary:hover {
+    color: var(--white);
+    background-color: transparent;
+}
+
+img.headimg {
+    position: absolute;
+    width: 40vw;
+    bottom: 5vh;
+    right: 3vw;
+    pointer-events: none;
+}
+
+img.blueimg {
+    position: absolute;
+    width: 40vw;
+    pointer-events: none;
+}
