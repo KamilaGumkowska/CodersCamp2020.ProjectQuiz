@@ -1,15 +1,7 @@
 // adding scores to the local storage
+let highScores = JSON.parse(localStorage.getItem('highScores')) || [];
 function addingToLocalStorage() {
-    let highScores = JSON.parse(localStorage.getItem('highScores')) || [];
-
-    btnInsert.onclick = function (e) {
-        key = inputKey.value;
-        value = inputValue.value;
-        localStorage.setItem(key, value);
-        savingHighScore(e);
-    };
-
-    savingHighScore = function (e) {
+    const savingHighScore = (e) => {
         e.preventDefault();
         let score = {
             score: value,
@@ -22,6 +14,13 @@ function addingToLocalStorage() {
 
         localStorage.setItem('highScores', JSON.stringify(highScores));
         location.reload();
+    };
+
+    btnInsert.onclick = function (e) {
+        key = inputKey.value;
+        value = inputValue.value;
+        localStorage.setItem(key, value);
+        savingHighScore(e);
     };
 }
 
@@ -39,7 +38,7 @@ const newDiv = function (className, parent, text = '') {
 function leaderboardPageTitle() {
     const leaderboardPageTitle = newDiv('titleDiv', leaderboard, 'Leaders');
     leaderboard.appendChild(leaderboardPageTitle);
-};
+}
 
 function top3Display() {
     const top3Container = newDiv('top3', leaderboard);
@@ -58,31 +57,33 @@ function top3Display() {
     newDiv('position3', item3, '3');
     newDiv('userName3', item3, highScores[2].name);
     newDiv('score3', item3, highScores[2].score);
-};
+}
+
+const list = newDiv('list', leaderboard);
+const itemsArrayList = [];
+
+const scoreList = ['score4', 'score5', 'score6', 'score7', 'score8', 'score9', 'score10'];
 
 //Rest of the leaderboard's list
 function restOfTheList() {
-    const list = newDiv('list', leaderboard);
-    const itemsArrayList = [];
+    itemsBoxes();
+    itemsElements();
+}
 
-    const scoreList = ['score4', 'score5', 'score6', 'score7', 'score8', 'score9', 'score10'];
-
-    function itemsBoxes() {
-        for (let i = 4; i < 11; i++) {
-            itemsArrayList[i] = newDiv('additional', list);
-        }
-    }
-
-    function itemsElements() {
-        for (let i = 4; i < 11; i++) {
-            newDiv('userName', itemsArrayList[i], i + '. ' + highScores[i - 1].name);
-        }
-        for (let i = 4; i < 11; i++) {
-            newDiv(scoreList[i - 4], itemsArrayList[i], i + highScores[i - 1].score);
-        }
+function itemsBoxes() {
+    for (let i = 4; i < 11; i++) {
+        itemsArrayList[i] = newDiv('additional', list);
     }
 }
 
+function itemsElements() {
+    for (let i = 4; i < 11; i++) {
+        newDiv('userName', itemsArrayList[i], i + '. ' + highScores[i - 1].name);
+    }
+    for (let i = 4; i < 11; i++) {
+        newDiv(scoreList[i - 4], itemsArrayList[i], i + highScores[i - 1].score);
+    }
+}
 function menuButton() {
     const buttonDiv = newDiv('buttonDiv', leaderboard);
     const menuButton = document.createElement('a');
@@ -98,7 +99,5 @@ export function renderLeaderboardScreen() {
     leaderboardPageTitle();
     top3Display();
     restOfTheList();
-    itemsBoxes();
-    itemsElements();
     menuButton();
-};
+}
