@@ -1,5 +1,6 @@
 import { showDifficultyLevelScreen } from './difficultyLevel';
 import { showMainMenu } from './mainPage';
+import { renderLeaderboardScreen } from './leaderboard'
 
 export const quizSettings = {
     category: 0,
@@ -9,5 +10,6 @@ export const quizSettings = {
 
 export const App = ({}) => {
     // showMainMenu();
-    showDifficultyLevelScreen(quizSettings);
+    //showDifficultyLevelScreen(quizSettings);
+    renderLeaderboardScreen();
 };
