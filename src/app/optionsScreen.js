@@ -3,6 +3,7 @@ import bottomOfHeadImage from './../../styles/img/bottom_of_head.png';
 import { showMainMenu } from './mainPage';
 import { createImageSection } from './difficultyLevel';
 import { createDOMElement } from './difficultyLevel';
+import { music } from './music';
 
 const MAIN = document.querySelector('#main-wrap');
 export let defaultNickFromOptions;
@@ -31,7 +32,7 @@ const createOptions = (parent) => {
         OptionsButtonsContainer,
     );
     resetLeaderboard.textContent = 'RESET LEADERBOARD';
-    musicButton.textContent = 'MUSIC';
+    musicButton.textContent = 'MUSIC ON';
     resetLeaderboard.addEventListener('click', () => {
         console.log('RESET LEADERBOARD');
         localStorage.setItem = 'test local storage';
@@ -70,7 +71,15 @@ const createBackButton = (parent) => {
 };
 
 const switchMusic = () => {
-    console.log('music');
+    let musicButton = document.querySelector('.musicButton');
+    if (music.state == 1) {
+        music.muteMusic();
+        musicButton.textContent = 'MUSIC OFF';
+    } else {
+        music.playMusic();
+        musicButton.textContent = 'MUSIC ON';
+
+    }
 };
 const goToMain = () => {
     MAIN.innerHTML = '';

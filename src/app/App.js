@@ -1,6 +1,7 @@
 import { showDifficultyLevelScreen } from './difficultyLevel';
 import { showMainMenu } from './mainPage';
-import {showOptionsScreen} from './optionsScreen';
+import { showOptionsScreen } from './optionsScreen';
+import { music } from './music';
 
 export const quizSettings = {
     category: 0,
@@ -9,6 +10,7 @@ export const quizSettings = {
 };
 
 export const App = ({}) => {
-    showMainMenu();
-    // showDifficultyLevelScreen(quizSettings);
+    music.playMusic();
+    // showMainMenu();
+    showDifficultyLevelScreen(quizSettings);
 };
