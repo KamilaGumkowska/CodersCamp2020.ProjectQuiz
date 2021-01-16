@@ -12,21 +12,7 @@
 }
 
 body {
-    background-color: var(--black);
-    color: black;
-}
-
-fieldset {
-    color: white;
-    background-color: white;
-}
-
-.menuButton {
-    color: #fdb813;
-    position: absolute;
-    margin-top: 0.2rem;
-    margin-left: 1rem;
-    font-size: 1.5rem;
+    background-color: var(--white);
 }
 
 #leaderboard {
@@ -35,102 +21,96 @@ fieldset {
     margin: auto auto;
 }
 
+.titleDiv{
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 800;
+    letter-spacing: 0.2rem;
+    color: var (var(--black));
+}
+
 .top3 {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-    margin-bottom: 6rem;
 }
-
-.top3 .item {
+/* top3items */
+.top3 > * {
     display: flex;
     flex-direction: column;
     width: 9rem;
     text-align: center;
-    padding: 2.8rem 0 0;
-    margin: 1rem 1rem 2rem;
+    margin: 0.5rem 1rem 0.5rem;
     border-radius: 0.5rem;
     cursor: pointer;
 }
 
 .top3 .item1 {
     color: gold;
-    height: 4rem;
 }
 
 .top3 .item2 {
     margin-top: 2rem;
     color: silver;
-    height: 3rem;
 }
 
 .top3 .item3 {
     margin-top: 3rem;
     color: brown;
-    height: 2rem;
 }
 
-.top3 .position {
+.position1, .position2, .position3 {
     font-weight: 800;
-    font-size: 4rem;
+    font-size: 5rem;
 }
 
-.top3 .name {
+.userName1, .userName2, .userName3 {
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 1.2rem;
 }
 
-.top3 .score {
-    opacity: 0.7;
+.score1, .score2, .score3{
+    color: var(--black);
 }
 
 .list {
-    margin: 6rem auto;
+    margin: 1rem auto;
     min-width: 160px;
 }
-.list .item {
+
+/* list items */
+.list > * {
     display: flex;
     align-items: center;
     background: white;
-    height: 2rem;
+    border: #323232 2px;
+    height: 1.8rem;
     border-radius: 4rem;
     margin-bottom: 0.5rem;
     cursor: pointer;
 }
-.list .position {
-    background-color: red;
-    color: red;
-    font-weight: 900;
-    position: absolute;
-    left: -2rem;
-    font-size: 1.25rem;
-    width: 1.5rem;
-    opacity: 0.6;
-}
-.list .name {
+
+.userName4, .userName5, .userName6, .userName7,.userName8, .userName9,.userName10, .userName5 {
     font-weight: 500;
     margin-left: 1rem;
     flex-grow: 2;
     flex-basis: 10rem;
     font-size: 1.1rem;
+    letter-spacing: 0.05rem;
 }
-.list .score {
+.list > * {
     margin-right: 1.5rem;
     opacity: 0.7;
 }
 
-.top-img {
-    position: absolute;
-    right: 20;
-    width: 360px;
-    margin-bottom: 2vh;
+.menuButton {
+    color: var(--black);
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-decoration: none;
 }
-.bottom-img {
-    position: absolute;
-    bottom: 0;
-    right: 20;
-    width: 320px;
-    height: 200px;
-}
+
+.buttonDiv{
+    margin-top:;
+    text-align: center;
+    }
