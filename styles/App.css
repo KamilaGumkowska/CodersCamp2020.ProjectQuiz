@@ -102,6 +102,7 @@ h2 {
     font-size: 20px;
     color: var(--yellow);
     letter-spacing: 5px;
+    text-align: center;
 }
 
 .main-game h2.subtitle {
