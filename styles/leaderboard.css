@@ -21,7 +21,7 @@ body {
     margin: auto auto;
 }
 
-.titleDiv{
+.titleDiv {
     text-align: center;
     font-size: 4rem;
     font-weight: 800;
@@ -34,7 +34,6 @@ body {
     justify-content: center;
     align-items: center;
 }
-/* top3items */
 .top3 > * {
     display: flex;
     flex-direction: column;
@@ -59,23 +58,30 @@ body {
     color: brown;
 }
 
-.position1, .position2, .position3 {
+.position1,
+.position2,
+.position3 {
     font-weight: 800;
     font-size: 5rem;
 }
 
-.userName1, .userName2, .userName3 {
+.userName1,
+.userName2,
+.userName3 {
     font-weight: 700;
     font-size: 1.2rem;
 }
 
-.score1, .score2, .score3{
+.score1,
+.score2,
+.score3 {
     color: var(--black);
 }
 
 .list {
     margin: 1rem auto;
     min-width: 160px;
+    max-width: 800px;
 }
 
 /* list items */
@@ -90,7 +96,7 @@ body {
     cursor: pointer;
 }
 
-.userName4, .userName5, .userName6, .userName7,.userName8, .userName9,.userName10, .userName5 {
+.additional .userName {
     font-weight: 500;
     margin-left: 1rem;
     flex-grow: 2;
@@ -110,7 +116,6 @@ body {
     text-decoration: none;
 }
 
-.buttonDiv{
-    margin-top:;
+.buttonDiv {
     text-align: center;
-    }
+}

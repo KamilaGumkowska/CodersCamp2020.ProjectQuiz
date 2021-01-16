@@ -64,30 +64,28 @@ function renderLeaderboardScreen() {
 
     //rest of the leaderboard's list
     function leaderboardList() {
-        let list = newDiv('list', leaderboard);
+        const list = newDiv('list', leaderboard);
+        const itemsArrayList = [];
 
-        let item4 = newDiv('item4', list);
-        let item5 = newDiv('item5', list);
-        let item6 = newDiv('item6', list);
-        let item7 = newDiv('item7', list);
-        let item8 = newDiv('item8', list);
-        let item9 = newDiv('item9', list);
-        let item10 = newDiv('item10', list);
+        const scoreList = ['score4', 'score5', 'score6', 'score7', 'score8', 'score9', 'score10'];
 
-        newDiv('userName4', item4, '4. ' + highScores[3].name);
-        newDiv('score4', item4, highScores[3].score);
-        newDiv('userName5', item5, '5. ' + highScores[4].name);
-        newDiv('score5', item5, highScores[4].score);
-        newDiv('userName6', item6, '6. ' + highScores[5].name);
-        newDiv('score6', item6, highScores[5].score);
-        newDiv('userName7', item7, '7. ' + highScores[6].name);
-        newDiv('score7', item7, highScores[6].score);
-        newDiv('userName8', item8, '8. ' + highScores[7].name);
-        newDiv('score8', item8, highScores[7].score);
-        newDiv('userName9', item9, '9. ' + highScores[8].name);
-        newDiv('score9', item9, highScores[8].score);
-        newDiv('userName10', item10, '10. ' + highScores[9].name);
-        newDiv('score10', item10, highScores[9].score);
+        function itemsBoxes() {
+            for (let i = 4; i < 11; i++) {
+                itemsArrayList[i] = newDiv('additional', list);
+            }
+        }
+        itemsBoxes();
+
+        function itemsElements() {
+            for (let i = 4; i < 11; i++) {
+                newDiv("userName", itemsArrayList[i], i + '. ' + highScores[i - 1].name);
+
+            }
+            for (let i = 4; i < 11; i++) {
+                newDiv(scoreList[i - 4], itemsArrayList[i], i + highScores[i - 1].score);
+            }
+        }
+        itemsElements();
     }
 
     leaderboardList();
