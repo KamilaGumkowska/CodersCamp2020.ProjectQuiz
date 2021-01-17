@@ -1,15 +1,16 @@
 body {
     background-color: #323232;
 }
-#main-wrap {
+#main-wrap { 
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 
     grid-gap: 30px;
-    width: 80vw;
+    width: 68%;
 
-    margin: 10vh auto;
+    margin: 5%;
     padding-top: 10vh;
+
 }
 .categoryTitle {
     grid-column-start: 1;
@@ -46,6 +47,7 @@ body {
 }
 .submit button {
     grid-column-start: 1;
+    background-color: red;
 }
 .btn {
     background-color: rgba(0, 0, 0, 0);
@@ -73,7 +75,9 @@ a {
 }
 a:last-child {
     grid-column-start: 3;
+    border: red solid 5px;
 }
+
 
 .bg:focus {
     background-color: rgba(253, 184, 19, 1); /*nie działa */

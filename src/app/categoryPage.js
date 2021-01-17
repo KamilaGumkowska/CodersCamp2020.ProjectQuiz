@@ -1,5 +1,6 @@
 import {quizSettings} from "./App.js";
 import {showDifficultyLevelScreen} from "./difficultyLevel";
+import {showMainMenu} from "./mainPage"
 import topOfHeadImage from './../../styles/img/top_of_head.png';
 import bottomOfHeadImage from './../../styles/img/bottom_of_head.png';
 import {createIMG} from "./difficultyLevel"
@@ -10,7 +11,7 @@ let quitButton;
 let submitButton;
 const category = [];
 const anchorTable = [];
-const categoryName = ['SCIENCE & NATURE', 'ART', 'SPORT', 'MUSIC', 'COMPUTERS', 'GENERAL KNOWLEDGE'];
+const categoryName = ['SCIENCE', 'ART', 'SPORT', 'MUSIC', 'COMPUTERS', 'GENERAL KNOWLEDGE'];
 const categoryClass = ['bg one', 'bg two', 'bg three', 'bg four', 'bg five', 'bg six'];
 
 const createDOMElement = function (type, className, parent, text = '') {
@@ -40,6 +41,7 @@ function showCategories() {
 
 function showNavigation() {
     quitButton = createDOMElement('button', 'bg btn quit', anchorTable[6], 'BACK');
+ 
     submitButton = createDOMElement('button', 'bg btn submit', anchorTable[7], 'NEXT');
     createIMG(bottomOfHeadImage, MAIN, "headBottom")
     
@@ -62,8 +64,14 @@ function addCategoryEventListeners() {
 
 function quitModule() {
     quizSettings.category = selectedCat;
+    // if(selectedCat = 0) {
+    //     quitButton.attr('disabled','true');
+    // }
+    // else {
+    //     quitButton.attr('disabled','false');
+    // }
     submitButton.addEventListener('click', () => {showDifficultyLevelScreen(quizSettings)});
-   // quitButton.addEventListener('click', ...) // powrót na mainPage
+    quitButton.addEventListener('click', () => {showMainMenu()});// powrót na mainPage
 }
 //quitModule();
 
