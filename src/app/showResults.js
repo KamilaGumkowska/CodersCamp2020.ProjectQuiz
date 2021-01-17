@@ -56,12 +56,3 @@ export function createNewImgElement(className, source, parent) {
     parent.appendChild(newImgElement);
     return newImgElement;
 }
-
-
-const createDOMElement = (type, className, parent, text = '') => {
-    const newElement = document.createElement(type);
-    newElement.className = className;
-    newElement.innerText = text;
-    parent.appendChild(newElement);
-    return newElement;
-};
