@@ -1,14 +1,14 @@
-const MAIN = document.querySelector('#swquiz-app');
+import {quizSettings} from "./App.js";
+import {showDifficultyLevelScreen} from "./difficultyLevel";
+const MAIN = document.querySelector('#main-wrap');
 let selectedCat;
+let quitButton;
+let submitButton;
 const category = [];
 const anchorTable = [];
 const categoryName = ['SCIENCE & NATURE', 'ART', 'SPORT', 'MUSIC', 'COMPUTERS', 'GENERAL KNOWLEDGE'];
 const categoryClass = ['bg one', 'bg two', 'bg three', 'bg four', 'bg five', 'bg six'];
-const quizSettings = {
-    category: 0,
-    difficultyLevel: -1,
-    numberOfQuestions: 0,
-};
+
 const createDOMElement = function (type, className, parent, text = '') {
     const newElement = document.createElement(type);
     newElement.className = className;
@@ -17,27 +17,27 @@ const createDOMElement = function (type, className, parent, text = '') {
     return newElement;
 };
 
-const createParents = function () {
-    for (i = 0; i < 8; i++) {
+function createParents() {
+    for (let i = 0; i < 8; i++) {
         anchorTable[i] = createDOMElement('a', 'a', MAIN);
     }
 };
-createParents();
 
-const showCategories = function () {
-    for (i = 0; i < categoryName.length; i++) {
+
+function showCategories() {
+    for (let i = 0; i < categoryName.length; i++) {
         category[i] = createDOMElement('div', categoryClass[i], anchorTable[i], categoryName[i]);
     }
 };
-showCategories();
 
-const showNavigation = function () {
+
+function showNavigation() {
     quitButton = createDOMElement('button', 'bg btn quit', anchorTable[6], 'BACK');
     submitButton = createDOMElement('button', 'bg btn submit', anchorTable[7], 'NEXT');
 };
-showNavigation();
 
-const addCategoryEventListeners = function () {
+
+function addCategoryEventListeners() {
     for (let i = 0; i < category.length; i++) {
         category[i].addEventListener('click', () => {
             if (selectedCat > 0) {
@@ -49,14 +49,22 @@ const addCategoryEventListeners = function () {
         });
     }
 };
-addCategoryEventListeners();
 
-const quiteModule= function() {
+
+function quitModule() {
     quizSettings.category = selectedCat;
-    //submitButton.addEventListener('click', showDifficultyLevelScreen(quizSettings); )// wywołanie funkcji Mateusza
+    submitButton.addEventListener('click', () => {showDifficultyLevelScreen(quizSettings)});
    // quitButton.addEventListener('click', ...) // powrót na mainPage
 }
-quiteModule();
+//quitModule();
+
+export function renderCategoryScreen() {
+    createParents();
+    showCategories();
+    showNavigation();
+    addCategoryEventListeners();
+    quitModule();
+}
 
 
 

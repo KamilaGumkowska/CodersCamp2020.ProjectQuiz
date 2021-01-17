@@ -1,7 +1,7 @@
 body {
     background-color: #323232;
 }
-#swquiz-app {
+#main-wrap {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 
@@ -49,7 +49,7 @@ body {
     height: 10vh;
     margin: 20%;
     padding: 2rem
-}
+} 
 .bg:hover {
     background-color: rgba(253, 184, 19, 1);
     background-image: none;
