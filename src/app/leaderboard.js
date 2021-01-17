@@ -1,3 +1,4 @@
+import { showMainMenu } from './mainPage';
 const MAIN = document.querySelector('#main-wrap');
 // const scoreList = ['score4', 'score5', 'score6', 'score7', 'score8', 'score9', 'score10'];
 const itemsArrayList = [];
@@ -88,4 +89,5 @@ function createButtonSection(parent) {
     let backToMenuButton = createNewDiv('backToMenuButton', parent);
     backToMenuButton.textContent = 'menu';
     //backToMenuButton.setAttribute('onclick', "window.location.href='#main-wrap'");
+    backToMenuButton.addEventListener("click",() => {showMainMenu()} );
 }
