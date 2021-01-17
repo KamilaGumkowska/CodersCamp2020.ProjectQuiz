@@ -1,6 +1,7 @@
 import image1 from './../../styles/img/img1.png';
 import image2 from './../../styles/img/img2.png';
 import {createGameScreen} from './game.js';
+import { showOptionsScreen } from './optionsScreen';
 
 export function showMainMenu() {
     createMainMenuStructure();
@@ -87,6 +88,8 @@ function createMainMenuStructure() {
 
     singleBtn.addEventListener('click', goToSingle);    
     multiBtn.addEventListener('click', goToMulti);
+    optionsBtn.addEventListener('click', showOptionsScreen);
+}
 
     function hideStartScreen() {
         startWrap.style.visibility = 'hidden';

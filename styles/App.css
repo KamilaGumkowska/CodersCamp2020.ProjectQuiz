@@ -17,6 +17,10 @@ body {
     background-color: var(--black);
     color: var(--white);
 }
+#main-wrap{
+    width: 100vw;
+    height: 100vh;
+}
 
 #startwrap {
     display: grid;
