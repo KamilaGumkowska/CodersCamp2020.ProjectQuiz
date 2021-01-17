@@ -2,6 +2,9 @@ import image1 from './../../styles/img/img1.png';
 import image2 from './../../styles/img/img2.png';
 import { showMainMenu } from './mainPage';
 //import { createGameScreen } from './game.js';
+//import { finalScore } from '.game.js';
+const finalScore = 30;
+import { quizSettings } from './App';
 //import { showLeaderboard } from './leaderboard,js';
 
 export function showResults() {
@@ -22,9 +25,8 @@ function createResultsStructure() {
     const img1 = createNewImgElement('headimg', image1, resultsWrap);
     const img2 = createNewImgElement('blueimg', image2, resultsWrap);
 
-    const endTitle = createNewElement('h1', 'title', endGame, 'quiz results');
-    const quizScore = createNewElement('h2', 'subtitle', endGame, 'your score is: ')
-    //console.log(finalScore + '/' + quizSettings.numberOfQuestions * 15);
+    const endTitle = createNewElement('h1', 'title', endGame, 'quiz result');
+    const quizScore = createNewElement('h2', 'subtitle', endGame, 'your score is: ' + finalScore + '/' + quizSettings.numberOfQuestions * 15);
     const nickNameInput = createNewElement('input', 'btn secondary nickInput', endGame, 'nickname');
     nickNameInput.placeholder = ('Enter your name');
     const submitResultBtn = createNewElement('button', 'btn secondary submitBtn', endGame, 'submit score');
@@ -38,14 +40,13 @@ function createResultsStructure() {
 
 function saveResult() {
     let nickInput = document.querySelector('.nickInput');
-    if (nickInput) {
+    console.log(nickInput.value);
+    if (nickInput.value !='') {
     localStorage.setItem('nickName', nickInput.value);
-    localStorage.setItem('userScore',finalScore);
-    //console.log(nickInput.value);
-    //return nickInput.value;
+    localStorage.setItem('userScore', finalScore);
     //showLeaderboard;
     }
-    else return;
+    else alert("Enter your name to submit!");
 }
 
 export function createNewElement(tag, className, parent, text = '') {
