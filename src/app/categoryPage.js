@@ -1,5 +1,9 @@
 import {quizSettings} from "./App.js";
 import {showDifficultyLevelScreen} from "./difficultyLevel";
+import topOfHeadImage from './../../styles/img/top_of_head.png';
+import bottomOfHeadImage from './../../styles/img/bottom_of_head.png';
+import {createIMG} from "./difficultyLevel"
+
 const MAIN = document.querySelector('#main-wrap');
 let selectedCat;
 let quitButton;
@@ -10,6 +14,7 @@ const categoryName = ['SCIENCE & NATURE', 'ART', 'SPORT', 'MUSIC', 'COMPUTERS', 
 const categoryClass = ['bg one', 'bg two', 'bg three', 'bg four', 'bg five', 'bg six'];
 
 const createDOMElement = function (type, className, parent, text = '') {
+    createIMG(topOfHeadImage, MAIN, "headTop")
     const newElement = document.createElement(type);
     newElement.className = className;
     newElement.innerText = text;
@@ -18,9 +23,11 @@ const createDOMElement = function (type, className, parent, text = '') {
 };
 
 function createParents() {
+    createDOMElement("h1", "categoryTitle", MAIN, "CATEGORY");
     for (let i = 0; i < 8; i++) {
         anchorTable[i] = createDOMElement('a', 'a', MAIN);
     }
+    
 };
 
 
@@ -34,6 +41,8 @@ function showCategories() {
 function showNavigation() {
     quitButton = createDOMElement('button', 'bg btn quit', anchorTable[6], 'BACK');
     submitButton = createDOMElement('button', 'bg btn submit', anchorTable[7], 'NEXT');
+    createIMG(bottomOfHeadImage, MAIN, "headBottom")
+    
 };
 
 

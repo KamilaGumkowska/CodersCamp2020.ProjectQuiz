@@ -11,6 +11,11 @@ body {
     margin: 10vh auto;
     padding-top: 10vh;
 }
+.categoryTitle {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    font-size: 50px;
+}
 .hide {
     display: none;
 }
@@ -21,9 +26,9 @@ body {
     background-color: rgba(0, 0, 0, 0);
 }
 .bg {
-    height: 20vh;
+    /* height: 20vh; */
     font-family: Poppins;
-    font-size: 35px;
+    font-size: 20px;
     font-style: normal;
     font-weight: 700;
     line-height: 53px;
