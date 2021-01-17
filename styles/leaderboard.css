@@ -10,31 +10,38 @@
     --yellow: #fdb813;
     --white: #f8f8f8;
 }
-
-body {
-    background-color: var(--white);
+#main-wrap{
+    width: 100vw;
+    height: 100vh;
 }
 
-#leaderboard {
-    max-width: 70vw;
-    height: 100vh;
+body {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.leaderboardWrapper {
+    max-width:80%;
+    height: 80%;
     margin: auto auto;
 }
 
 .titleDiv {
     text-align: center;
     font-size: 4rem;
-    font-weight: 800;
     letter-spacing: 0.2rem;
     color: var (var(--black));
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
 }
 
-.top3 {
+.top3Container {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.top3 > * {
+.top3Container > * {
     display: flex;
     flex-direction: column;
     width: 9rem;
@@ -44,59 +51,55 @@ body {
     cursor: pointer;
 }
 
-.top3 .item1 {
+.top3Container .item1 {
     color: gold;
 }
 
-.top3 .item2 {
+.top3Container .item2 {
     margin-top: 2rem;
     color: silver;
 }
 
-.top3 .item3 {
+.top3Container .item3 {
     margin-top: 3rem;
     color: brown;
 }
 
-.position1,
-.position2,
-.position3 {
+.position1, .position2, .position3 {
     font-weight: 800;
     font-size: 5rem;
 }
 
-.userName1,
-.userName2,
-.userName3 {
+.userName1, .userName2, .userName3 {
     font-weight: 700;
     font-size: 1.2rem;
 }
 
-.score1,
-.score2,
-.score3 {
-    color: var(--black);
+.score1, .score2, .score3 {
+    color:#f8f8f8;
 }
 
-.list {
+.listContainer {
     margin: 1rem auto;
     min-width: 160px;
     max-width: 800px;
 }
 
 /* list items */
-.list > * {
+.listElementBox {
     display: flex;
     align-items: center;
-    background: white;
+    background: transparent;
     border: #323232 2px;
     height: 1.8rem;
+    border: 2px solid var(--white);
     border-radius: 4rem;
     margin-bottom: 0.5rem;
     cursor: pointer;
+    
 }
 
-.additional .userName {
+.listElementBox .userName {
     font-weight: 500;
     margin-left: 1rem;
     flex-grow: 2;
@@ -104,18 +107,32 @@ body {
     font-size: 1.1rem;
     letter-spacing: 0.05rem;
 }
-.list > * {
-    margin-right: 1.5rem;
-    opacity: 0.7;
+
+.score{
+    margin-right: 6px;
 }
 
-.menuButton {
-    color: var(--black);
-    font-size: 1.5rem;
-    font-weight: 900;
-    text-decoration: none;
-}
+.backToMenuButton {
+        border: 5px solid var(--yellow);
+        padding: 10px 60px;
+        color: var(--yellow);
+    
 
-.buttonDiv {
+
     text-align: center;
+    margin: auto auto;
+    background-color: transparent;
+    border: 5px solid var(--white);
+    border-radius: 200px;
+    color: var(--white);
+    padding: 20px 90px;
+    font-weight: 700;
+    font-size: 20px;
+    text-decoration: none;
+    max-width: 300px;
+}
+
+.backToMenuButton:hover {
+    background-color: var(--yellow);
+    color: var(--black);
 }
