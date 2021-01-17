@@ -1,5 +1,4 @@
 import image3 from './../../styles/img/img3.png';
-import bcg from './../../styles/img/bcg.png';
 import { createNewElement } from './mainPage';
 import { createNewImgElement } from './mainPage';
 import { showMainMenu } from './mainPage';

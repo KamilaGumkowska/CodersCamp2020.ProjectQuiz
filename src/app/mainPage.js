@@ -5,10 +5,7 @@ import image2 from './../../styles/img/img2.png';
 // import {  } from ''; for multi btn
 // import {  } from ''; for leaderboard btn
 import { showCredits } from './credits.js';
-
-import {createGameScreen} from './game.js';
 import { showOptionsScreen } from './optionsScreen';
-
 
 export function showMainMenu() {
     createMainMenuStructure();
@@ -44,7 +41,7 @@ function createMainMenuStructure() {
 
     const optionsBtn = createNewElement('button', 'btn teritary options', optionsWrap, 'options');
 
-    goToScreenOnClick(singleBtn, showDifficultyLevelScreen);
+    // goToScreenOnClick(singleBtn, showDifficultyLevelScreen);
     // goToScreenOnClick(multiBtn, showMulti);
     // goToScreenOnClick(leaderBtn, showLeader);
     goToScreenOnClick(creditsBtn, showCredits);
