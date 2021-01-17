@@ -23,12 +23,12 @@ function createResultsStructure() {
     const img2 = createNewImgElement('blueimg', image2, resultsWrap);
 
     const endTitle = createNewElement('h1', 'title', endGame, 'quiz results');
-    const nickNameInput = createNewElement('input', 'nickInput', endGame, 'nickname');
+    const quizScore = createNewElement('h2', 'subtitle', endGame, 'your score is: ')
+    const nickNameInput = createNewElement('input', 'btn secondary nickInput', endGame, 'nickname');
     nickNameInput.placeholder = ('Enter your name');
-    const submitResultBtn = createNewElement('button', 'submitBtn', endGame, 'submit');
+    const submitResultBtn = createNewElement('button', 'btn secondary submitBtn', endGame, 'submit score');
     const tryAgainBtn = createNewElement('button', 'btn primary try-again', endGame, 'try again');
-    const mainPageBtn = createNewElement('button', 'btn primary main-page', endGame, 'main page');
-    
+    const mainPageBtn = createNewElement('button', 'btn priary main-page', endGame, 'main page');
 
     submitResultBtn.addEventListener('click', saveResult);
     //tryAgainBtn.addEventListener('click', createGamescreen);
