@@ -24,6 +24,7 @@ function createResultsStructure() {
 
     const endTitle = createNewElement('h1', 'title', endGame, 'quiz results');
     const quizScore = createNewElement('h2', 'subtitle', endGame, 'your score is: ')
+    //console.log(finalScore + '/' + quizSettings.numberOfQuestions * 15);
     const nickNameInput = createNewElement('input', 'btn secondary nickInput', endGame, 'nickname');
     nickNameInput.placeholder = ('Enter your name');
     const submitResultBtn = createNewElement('button', 'btn secondary submitBtn', endGame, 'submit score');
@@ -38,6 +39,7 @@ function createResultsStructure() {
 function saveResult() {
     let nickInput = document.querySelector('.nickInput');
     console.log(nickInput.value);
+    //return nickInput.value;
     //showLeaderboard;
 }
 
