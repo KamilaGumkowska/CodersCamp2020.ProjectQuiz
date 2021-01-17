@@ -1,5 +1,7 @@
 import topOfHeadImage from './../../styles/img/top_of_head.png';
 import bottomOfHeadImage from './../../styles/img/bottom_of_head.png';
+import renderCategoryScreen from './categoryPage';
+import { createGameScreen } from './game';
 
 const LEVEL_NAMES = ['EASY', 'MEDIUM', 'HARD'];
 const MAIN = document.querySelector('#main-wrap');
@@ -78,6 +80,7 @@ const updateSettings = (quizSettings) => {
         quizSettings.difficultyLevel = selectedLevel;
         quizSettings.numberOfQuestion = selectedNbrOfQuestions;
         MAIN.innerHTML = '';
+        createGameScreen();
     });
 };
 const createButtonsSection = (parent) => {
@@ -85,7 +88,10 @@ const createButtonsSection = (parent) => {
     let backToCategoryPageButton = createDOMElement('button', 'backToCategoryPageButton btn primary', buttonsContainer);
     let confirmLevelButton = createDOMElement('button', 'confirmLevelButton btn primary', buttonsContainer);
     backToCategoryPageButton.textContent = 'BACK';
-    backToCategoryPageButton.setAttribute('onclick', "window.location.href='#main-wrap'");
+    backToCategoryPageButton.addEventListener('click', () => {
+        MAIN.innerHTML = '';
+        renderCategoryScreen();
+    });
     confirmLevelButton.textContent = "LET'S PLAY!";
 };
 
