@@ -1,10 +1,14 @@
 import image1 from './../../styles/img/img1.png';
 import image2 from './../../styles/img/img2.png';
-import { showDifficultyLevelScreen } from './difficultyLevel.js'; //for single btn
+
+// import { showDifficultyLevelScreen } from './difficultyLevel.js'; //for single btn
 // import {  } from ''; for multi btn
 // import {  } from ''; for leaderboard btn
-// import {  } from ''; for options btn
 import { showCredits } from './credits.js';
+
+import {createGameScreen} from './game.js';
+import { showOptionsScreen } from './optionsScreen';
+
 
 export function showMainMenu() {
     createMainMenuStructure();
@@ -44,7 +48,7 @@ function createMainMenuStructure() {
     // goToScreenOnClick(multiBtn, showMulti);
     // goToScreenOnClick(leaderBtn, showLeader);
     goToScreenOnClick(creditsBtn, showCredits);
-    // goToScreenOnClick(optionsBtn, showOptions);
+    goToScreenOnClick(optionsBtn, showOptionsScreen);
 }
 
 export function goToScreenOnClick(btnName, showScreen) {

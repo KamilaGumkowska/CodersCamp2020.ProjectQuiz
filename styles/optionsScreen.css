@@ -1,0 +1,75 @@
+.optionsScreen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: space-around;
+    padding-right: 25%;
+}
+
+.backButtonContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* bottom: 20%; */
+    height: 20%;
+}
+
+.OptionsButtonsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 55%;
+}
+
+.optionButton {
+    margin: 3% 0;
+}
+.nickParagraphOption {
+    text-align: center;
+    margin: 0 0 2% 0;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 1.5rem;
+}
+.nickContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 55%;
+}
+.nickInput{
+    text-transform: none;
+    width:100%;
+}
+.optionButton.nickSubmit {
+    margin: 2% 0;
+}
+.optionButton {
+    width: 100%;
+}
+
+.OptionFont {
+    font-size: 1.2rem;
+    font-style: normal;
+    letter-spacing: 0em;
+    text-align: center;
+}
+@media (max-width: 800px) {
+    .OptionsButtonsContainer,.nickContainer {
+        width:55%;
+    }
+}
+@media (max-width: 700px) {
+    .OptionsButtonsContainer,.nickContainer {
+        width:65%;
+    }
+}
+@media (max-width: 520px) {
+    .optionsScreen {
+        padding-right: 0;
+    }
+}
