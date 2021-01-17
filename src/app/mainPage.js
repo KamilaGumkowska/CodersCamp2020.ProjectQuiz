@@ -25,15 +25,15 @@ function createMainMenuStructure() {
     const creditsWrap = createNewElement('div', 'credits-wrap', startWrap);
     const optionsWrap = createNewElement('div', 'options-wrap', startWrap);
 
-    const img1 = createNewImgElement('headimg', image1, startWrap);
-    const img2 = createNewImgElement('blueimg', image2, startWrap);
+    createNewImgElement('headimg', image1, startWrap);
+    createNewImgElement('blueimg', image2, startWrap);
 
-    const gameTitle = createNewElement('h1', 'title', mainGame, 'brains out quiz');
-    const gameSubTitle = createNewElement('h2', 'subtitle', mainGame, 'starts here:');
+    createNewElement('h1', 'title', mainGame, 'brains out quiz');
+    createNewElement('h2', 'subtitle', mainGame, 'starts here:');
     const singleBtn = createNewElement('button', 'btn primary single', mainGame, 'single');
     const multiBtn = createNewElement('button', 'btn primary multi', mainGame, 'multi');
 
-    const leaderTitle = createNewElement('h2', 'subtitle', leaderBoardWrap, 'ends here:');
+    createNewElement('h2', 'subtitle', leaderBoardWrap, 'ends here:');
     const leaderBtn = createNewElement('button', 'btn secondary leaderboard', leaderBoardWrap, 'see our leaders');
 
     const creditsBtn = createNewElement('button', 'btn teritary credits', creditsWrap, 'credits');
