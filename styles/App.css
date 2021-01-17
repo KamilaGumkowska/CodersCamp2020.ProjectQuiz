@@ -94,6 +94,7 @@ h1 {
     text-transform: uppercase;
     font-size: 100px;
     text-align: center;
+    z-index: 2;
 }
 
 h2 {
@@ -170,6 +171,7 @@ img.headimg {
     right: 0;
     pointer-events: none;
     visibility: visible;
+    z-index: 1;
 }
 
 img.blueimg {
@@ -177,4 +179,6 @@ img.blueimg {
     width: 40vw;
     pointer-events: none;
     visibility: visible;
+    left: 0;
+    top: 0;
 }
