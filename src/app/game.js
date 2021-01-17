@@ -2,7 +2,7 @@ import topPart from './../../styles/img/head.png';
 import bottomPart from './../../styles/img/bottom.png';
 import { quizSettings } from './App';
 import { startTimer } from './timer';
-
+import { noTimeLeft } from './timer';
 const MULTIPLE_CHOICE_ANSWERS_NUMBER = 4;
 
 export function createGameScreen() {
@@ -10,6 +10,7 @@ export function createGameScreen() {
     createHtml();
 }
 
+export let finalScore = 0;
 let currentIcon;
 let questions = [];
 let currentQuestion = {};
@@ -130,10 +131,17 @@ async function game() {
             </div>
         `;
     }
+
     function addEventListeners() {
         const ANSWERS = Array.from(document.getElementsByClassName('answer'));
         ANSWERS.forEach((answer) => {
             answer.addEventListener('click', (e) => {
+                if (currentQuestion.correct_answer === answer.children[0].innerHTML) {
+                    finalScore += 15;
+                } else {
+                    finalScore += 0;
+                }
+                console.log(finalScore);
                 getAnotherQuestion();
                 setQuestions();
                 ifTrueOrFalse();
@@ -141,10 +149,24 @@ async function game() {
             });
             if (availableQuestions.length === 0) {
                 answer.addEventListener('click', (e) => {
-                    return window.location.assign('quiz'); //podmienić
+                    // return window.location.assign('quiz');
+                    console.log(finalScore + '/' + quizSettings.numberOfQuestions * 15);
+                    setTimeout(() => {
+                        return window.location.assign('quiz');
+                    }, 5000);
                 });
             }
         });
+    }
+
+    function getQuestionIfTimeIsUp() {
+        setInterval(function () {
+            if (noTimeLeft) {
+                setQuestions();
+                ifTrueOrFalse();
+                addEventListeners();
+            }
+        }, 16000);
     }
 
     function addQuitEventListener() {

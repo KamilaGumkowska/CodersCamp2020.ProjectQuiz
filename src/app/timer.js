@@ -1,7 +1,7 @@
-const TIME_LIMIT = 60;
-const WARNING_THRESHOLD = 30;
-const ALERT_THRESHOLD = 15;
-
+const TIME_LIMIT = 16;
+const WARNING_THRESHOLD = 8;
+const ALERT_THRESHOLD = 4;
+export let noTimeLeft = false;
 const COLOR_CODES = {
     info: {
         color: 'green',
@@ -38,7 +38,7 @@ export function startTimer() {
         timePassed = timePassed += 1;
         timeLeft = TIME_LIMIT - timePassed;
         if (timeLeft < 0) {
-            return window.location.assign('quiz');
+            noTimeLeft = true;
         }
         document.getElementById('timerLabel').innerHTML = formatTime(timeLeft);
         setCircleDasharray();
