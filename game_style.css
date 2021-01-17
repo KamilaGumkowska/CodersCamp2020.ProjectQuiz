@@ -94,3 +94,47 @@ body {
     width: 320px;
     height: 200px;
 }
+
+@media(max-width: 376px) {
+    .question {
+        width: 100vw;
+    }
+    .question h3 {
+        font-size: 45px;
+    }
+    .icon {
+        height: 35px;
+        width: auto;
+    }
+    .question p {
+        font-size: 20px;
+    }
+    .answer {
+        width: 70vw;
+        height: 8vh;
+    }
+    .answer p{
+        font-size: 18px;
+    }
+    .level p {
+        font-size: 12px;
+    }
+    body {
+        grid-template-columns: 1fr;
+    }
+    .top-img {
+        display: none;
+    }
+    .quit {
+        width: 25vw;
+        height: 5vh;
+    }
+    .quit p {
+        font-size: 16px;
+    }
+    .bottom-img {
+        height: 80px;
+        width: auto;
+        right: 10px;
+    }
+}

@@ -125,7 +125,7 @@ async function game() {
         const QUIZ = document.getElementById('main-wrap');
         QUIZ.className = 'question';
         QUIZ.innerHTML = `
-            <h3>Question <img src="${currentIcon}" alt="${currentQuestion.category}"/></h3>
+            <h3>Question <img class = "icon" src="${currentIcon}" alt="${currentQuestion.category}"/></h3>
             <p id="question-asked">${currentQuestion.question}</p>
             <div class="answer">
                 <p>${currentQuestion.answers[0]}</p>

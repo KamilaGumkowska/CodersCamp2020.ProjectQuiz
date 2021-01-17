@@ -45,3 +45,14 @@
     color: red;
 }
   
+@media(max-width: 376px) {
+    .timerContainer {
+        height: 80px;
+        width: 80px;
+    }
+    .timerLabel {
+        width: 80px;
+        height: 80px;
+        font-size: 35px;
+    }
+}
