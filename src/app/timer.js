@@ -30,6 +30,7 @@ function formatTime(timeLeft) {
 }
 
 export function startTimer() {
+    noTimeLeft = false;
     document.getElementById('app').innerHTML = ``;
     setHTML();
     timePassed = 0;
@@ -37,7 +38,7 @@ export function startTimer() {
     timerInterval = setInterval(() => {
         timePassed = timePassed += 1;
         timeLeft = TIME_LIMIT - timePassed;
-        if (timeLeft < 0) {
+        if (timeLeft <= 0) {
             noTimeLeft = true;
         }
         document.getElementById('timerLabel').innerHTML = formatTime(timeLeft);

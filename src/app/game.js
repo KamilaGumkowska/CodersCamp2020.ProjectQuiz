@@ -70,10 +70,23 @@ async function game() {
 
     function getAnotherQuestion() {
         numberOfQuestions++;
+
+        if (availableQuestions.length === 0) {
+            console.log(finalScore + '/' + quizSettings.numberOfQuestions * 15);
+            setTimeout(() => {
+                return window.location.assign('quiz');
+            }, 1000);
+        }
         const questionIndex = Math.floor(Math.random() * availableQuestions.length);
         currentQuestion = availableQuestions[questionIndex];
         availableQuestions.splice(questionIndex, 1);
         startTimer();
+        isNoTimeLeft().then(() => {
+            getAnotherQuestion();
+            setQuestions();
+            ifTrueOrFalse();
+            addEventListeners();
+        });
     }
 
     function ifTrueOrFalse() {
@@ -147,26 +160,7 @@ async function game() {
                 ifTrueOrFalse();
                 addEventListeners();
             });
-            if (availableQuestions.length === 0) {
-                answer.addEventListener('click', (e) => {
-                    // return window.location.assign('quiz');
-                    console.log(finalScore + '/' + quizSettings.numberOfQuestions * 15);
-                    setTimeout(() => {
-                        return window.location.assign('quiz');
-                    }, 5000);
-                });
-            }
         });
-    }
-
-    function getQuestionIfTimeIsUp() {
-        setInterval(function () {
-            if (noTimeLeft) {
-                setQuestions();
-                ifTrueOrFalse();
-                addEventListeners();
-            }
-        }, 16000);
     }
 
     function addQuitEventListener() {
@@ -203,4 +197,15 @@ function createHtml() {
         </div>
         <img class="bottom-img" src=${bottomPart} alt="Bottom part of the man's head">
     `;
+}
+
+function isNoTimeLeft() {
+    return new Promise(function (resolve, reject) {
+        (function waitForNoTimeLeft() {
+            if (noTimeLeft) {
+                return resolve();
+            }
+            setTimeout(waitForNoTimeLeft, 1000);
+        })();
+    });
 }
