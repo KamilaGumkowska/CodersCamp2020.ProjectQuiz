@@ -7,6 +7,7 @@ export function showMainMenu() {
 
 function createMainMenuStructure() {
     const mainWrap = document.getElementById('main-wrap');
+    mainWrap.innerHTML = '';
 
     const startWrap = document.createElement('div');
     startWrap.id = 'startwrap';
