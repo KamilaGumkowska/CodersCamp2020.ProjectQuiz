@@ -98,9 +98,11 @@ body {
 @media(max-width: 376px) {
     .question {
         width: 100vw;
+        margin-bottom: 2vh;
     }
     .question h3 {
         font-size: 45px;
+        margin-bottom: 15px;
     }
     .icon {
         height: 35px;
@@ -110,11 +112,12 @@ body {
         font-size: 20px;
     }
     .answer {
+        margin-top: 15px;
         width: 70vw;
         height: 8vh;
     }
     .answer p{
-        font-size: 18px;
+        font-size: 16px;
     }
     .level p {
         font-size: 12px;
@@ -122,7 +125,7 @@ body {
     body {
         grid-template-columns: 1fr;
     }
-    .top-img {
+    .bottom-img, .top-img {
         display: none;
     }
     .quit {
@@ -131,10 +134,5 @@ body {
     }
     .quit p {
         font-size: 16px;
-    }
-    .bottom-img {
-        height: 80px;
-        width: auto;
-        right: 10px;
     }
 }
