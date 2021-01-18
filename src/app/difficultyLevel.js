@@ -75,7 +75,10 @@ const setBubble = (range, bubble) => {
 const updateSettings = (quizSettings) => {
     let confirmLevelButton = document.querySelector('.confirmLevelButton');
     confirmLevelButton.addEventListener('click', () => {
-        let selectedLevel = document.querySelector('.differenceLevel').value;
+        let selectedLevel;
+        if (document.querySelector('.differenceLevel').value == 0) selectedLevel = 'easy';
+        if (document.querySelector('.differenceLevel').value == 1) selectedLevel = 'medium';
+        if (document.querySelector('.differenceLevel').value == 2) selectedLevel = 'hard';
         let selectedNbrOfQuestions = document.querySelector('.numberOfQuestions').value;
         quizSettings.difficultyLevel = selectedLevel;
         quizSettings.numberOfQuestion = selectedNbrOfQuestions;
