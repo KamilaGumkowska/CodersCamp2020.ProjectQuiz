@@ -34,6 +34,18 @@ body {
     height: 100vh;
 }
 
+#resultswrap {
+    display: grid;
+    grid-template-areas: 
+        "game"
+        "leader";
+    grid-template-rows: 4fr 1fr;
+    justify-items: center;
+    align-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
 .main-game {
     grid-area: game;
     align-self: flex-end;
@@ -44,6 +56,36 @@ body {
         "h2 h2"
         "btn1 btn2";
     justify-items: center;
+}
+
+.endgame {
+    grid-area: game;
+    align-self: flex-end;
+    margin-bottom: 5rem;
+    display: grid;
+    grid-template-areas: 
+        "h1 h1"
+        "h2 h2"
+        "inpt btn3"
+        "btn1 btn2";
+    justify-items: center;
+    row-gap: 1em;
+}
+
+.nickNameInput {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 55%;
+}
+.nickInput{
+    text-transform: none;
+    width:100%;
+    font-size: 1.2rem;
+    font-style: normal;
+    letter-spacing: 0em;
+    text-align: center;
 }
 
 .leaderboard-wrap {
@@ -72,6 +114,22 @@ body {
     grid-area: btn2;
 }
 
+.endgame .try-again {
+    grid-area: btn1;
+}
+
+.endgame .main-page {
+    grid-area: btn2;
+}
+
+.endgame .nickInput {
+    grid-area: inpt;
+}
+
+.endgame .submitBtn {
+    grid-area: btn3;
+}
+
 .leaderboard-wrap .subtitle {
     grid-area: title;
 }
@@ -98,6 +156,7 @@ h1 {
     text-transform: uppercase;
     font-size: 100px;
     text-align: center;
+    z-index: 2;
 }
 
 h2 {
@@ -106,9 +165,10 @@ h2 {
     font-size: 20px;
     color: var(--yellow);
     letter-spacing: 5px;
+    text-align: center;
 }
 
-.main-game h2.subtitle {
+.endgame h2.subtitle {
     margin-bottom: 5rem;
 }
 
@@ -122,6 +182,7 @@ h2 {
     border-radius: 200px;
     color: var(--white);
     padding: 20px 90px;
+    margin: 0 20px;
     font-weight: 700;
     font-size: 20px;
     text-transform: uppercase;
@@ -154,7 +215,7 @@ h2 {
     font-size: 15px;
     border: none;
     padding: 0;
-    margin: 50px;
+    margin: 50px 50px;
     color: var(--yellow);
     font-weight: 700;
     letter-spacing: 5px;
@@ -168,13 +229,18 @@ h2 {
 img.headimg {
     position: absolute;
     width: 40vw;
-    bottom: 5vh;
-    right: 3vw;
+    top: 10%;
+    right: 0;
     pointer-events: none;
+    visibility: visible;
+    z-index: 1;
 }
 
 img.blueimg {
     position: absolute;
     width: 40vw;
     pointer-events: none;
+    visibility: visible;
+    left: 0;
+    top: 0;
 }
