@@ -6,7 +6,6 @@ import { createNewElement } from './mainPage';
 import { createNewImgElement } from './mainPage';
 import { createGameScreen } from './game';
 import { finalScore } from './game';
-import { showLeaderboardScreen } from './leaderboard';
 import { defaultNickFromOptions } from './optionsScreen';
 
 export function showResults() {
@@ -36,7 +35,7 @@ function createResultsStructure() {
     const endTitle = createNewElement('h1', 'title', endGame, TITLE_TXT);
     const quizScore = createNewElement('h2', 'subtitle', endGame, SCORE_DISPLAY_TXT);
     const nickNameInput = createNewElement('input', 'btn secondary nickInput', endGame, 'nickname');
-    nickNameInput.value = defaultNickFromOptions;
+    defaultNickFromOptions ? (nickNameInput.value = defaultNickFromOptions) : (nickNameInput.value = '');
     const submitResultBtn = createNewElement('button', 'btn secondary submitBtn', endGame, RESULT_BTN_TXT);
     const tryAgainBtn = createNewElement('button', 'btn primary try-again', endGame, TRYAGAIN_BTN_TXT);
     const mainPageBtn = createNewElement('button', 'btn priary main-page', endGame, MAINPAGE_BTN_TXT);
@@ -49,19 +48,19 @@ function createResultsStructure() {
 let highScores = JSON.parse(localStorage.getItem('highScores')) || [];
 
 function saveResult() {
-    if (defaultNickFromOptions != '' || nickNameInput != ''){
+    if (defaultNickFromOptions != '' || nickNameInput != '') {
         let nickInput = document.querySelector('.nickInput');
         let score = {
             score: finalScore,
             name: nickInput.value,
         };
-        
+
         highScores.push(score);
         highScores.sort((a, b) => b.score - a.score);
         highScores.splice(10);
-        
+
         localStorage.setItem('highScores', JSON.stringify(highScores));
-        showLeaderboardScreen();
+    } else {
+        alert('Enter your name!');
     }
-   else alert('Enter your name!');
 }

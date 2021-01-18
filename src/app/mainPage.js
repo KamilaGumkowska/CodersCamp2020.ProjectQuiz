@@ -3,9 +3,10 @@ import image2 from './../../styles/img/img2.png';
 
 // import { showDifficultyLevelScreen } from './difficultyLevel.js'; // category function here
 import { showWorkInProgress } from './workInProgress';
-// import {  } from ''; // leaderboard function here
+import { showLeaderboardScreen } from './leaderboard';
 import { showCredits } from './credits.js';
 import { showOptionsScreen } from './optionsScreen';
+import { renderCategoryScreen } from './categoryPage';
 
 export function showMainMenu() {
     createMainMenuStructure();
@@ -41,9 +42,9 @@ function createMainMenuStructure() {
 
     const optionsBtn = createNewElement('button', 'btn teritary options', optionsWrap, 'options');
 
-    // goToScreenOnClick(singleBtn, showDifficultyLevelScreen); // category function
+    goToScreenOnClick(singleBtn, renderCategoryScreen);
     goToScreenOnClick(multiBtn, showWorkInProgress);
-    // goToScreenOnClick(leaderBtn, showLeader); // leaderboard function
+    goToScreenOnClick(leaderBtn, showLeaderboardScreen);
     goToScreenOnClick(creditsBtn, showCredits);
     goToScreenOnClick(optionsBtn, showOptionsScreen);
 }

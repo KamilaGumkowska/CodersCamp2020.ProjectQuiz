@@ -1,8 +1,8 @@
 import { renderCategoryScreen } from './categoryPage';
 import { showDifficultyLevelScreen } from './difficultyLevel';
 import { showMainMenu } from './mainPage';
-import { showLeaderboardScreen } from './leaderboard'
-import { showResults } from './showResults'
+import { showLeaderboardScreen } from './leaderboard';
+import { showResults } from './showResults';
 import { createGameScreen } from './game';
 import { music } from './music';
 
@@ -14,12 +14,11 @@ export const quizSettings = {
 };
 
 export const App = ({}) => {
-
     // showMainMenu();
     //showDifficultyLevelScreen(quizSettings);
     //renderCategoryScreen();
     //showResults();
     //showLeaderboardScreen();
-    music.playMusic();
+    //music.playMusic();
     showMainMenu();
 };

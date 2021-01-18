@@ -1,9 +1,16 @@
 import topPart from './../../styles/img/head.png';
 import bottomPart from './../../styles/img/bottom.png';
-import { quizSettings } from './App';
+//import { quizSettings } from './App';
 import { startTimer } from './timer';
 import { noTimeLeft } from './timer';
+import { showResults } from './showResults';
 const MULTIPLE_CHOICE_ANSWERS_NUMBER = 4;
+
+const quizSettings = {
+    category: 11,
+    difficultyLevel: 'easy',
+    numberOfQuestions: 10,
+};
 
 export function createGameScreen() {
     game();
@@ -53,6 +60,7 @@ function shuffleAnswers(arrayToShuffle) {
 }
 
 async function game() {
+    finalScore = 0;
     await fetchQuizQuestions();
     startGame();
     categoryIcon();
@@ -74,19 +82,20 @@ async function game() {
         if (availableQuestions.length === 0) {
             console.log(finalScore + '/' + quizSettings.numberOfQuestions * 15);
             setTimeout(() => {
-                return window.location.assign('quiz');
-            }, 1000);
+                showResults();
+            }, 100);
+        } else {
+            const questionIndex = Math.floor(Math.random() * availableQuestions.length);
+            currentQuestion = availableQuestions[questionIndex];
+            availableQuestions.splice(questionIndex, 1);
+            startTimer();
+            isNoTimeLeft().then(() => {
+                getAnotherQuestion();
+                setQuestions();
+                ifTrueOrFalse();
+                addEventListeners();
+            });
         }
-        const questionIndex = Math.floor(Math.random() * availableQuestions.length);
-        currentQuestion = availableQuestions[questionIndex];
-        availableQuestions.splice(questionIndex, 1);
-        startTimer();
-        isNoTimeLeft().then(() => {
-            getAnotherQuestion();
-            setQuestions();
-            ifTrueOrFalse();
-            addEventListeners();
-        });
     }
 
     function ifTrueOrFalse() {

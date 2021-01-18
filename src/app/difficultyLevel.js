@@ -1,6 +1,6 @@
 import topOfHeadImage from './../../styles/img/top_of_head.png';
 import bottomOfHeadImage from './../../styles/img/bottom_of_head.png';
-// import renderCategoryScreen from './categoryPage';
+import { renderCategoryScreen } from './categoryPage';
 import { createGameScreen } from './game';
 
 const LEVEL_NAMES = ['EASY', 'MEDIUM', 'HARD'];

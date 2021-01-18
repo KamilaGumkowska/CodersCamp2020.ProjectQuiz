@@ -2,6 +2,7 @@ import image4 from './../../styles/img/img4.png';
 import { createNewElement } from './mainPage';
 import { createNewImgElement } from './mainPage';
 import { showMainMenu } from './mainPage';
+import { renderCategoryScreen } from './categoryPage';
 
 const mainWrap = document.getElementById('main-wrap');
 
@@ -26,6 +27,6 @@ function createWorkInProgressStructure() {
 
     const backBtn = createNewElement('button', 'btn secondary backbtn', backWrap, 'back');
 
-    singleBtn.addEventListener('click', showMainMenu); // category function here
+    singleBtn.addEventListener('click', renderCategoryScreen); // category function here
     backBtn.addEventListener('click', showMainMenu);
 }

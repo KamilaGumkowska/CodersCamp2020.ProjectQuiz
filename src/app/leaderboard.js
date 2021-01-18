@@ -5,7 +5,7 @@ import { createIMG } from './difficultyLevel';
 
 const MAIN = document.querySelector('#main-wrap');
 const itemsArrayList = [];
-let highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+let highScores = [];
 // let highScores = [
 //     { score: 100, name: 'Seb' },
 //     { score: 70, name: 'Sebast' },
@@ -34,7 +34,7 @@ function createNewDiv(className, parent, text = '') {
 function createHTMLStructure() {
     MAIN.innerHTML = '';
     let leaderboardWrapper = createNewDiv('leaderboardWrapper', MAIN);
-
+    highScores = JSON.parse(localStorage.getItem('highScores'));
     createPageTitle(leaderboardWrapper);
     createTop3(leaderboardWrapper);
     createRestOfTheList(leaderboardWrapper);
