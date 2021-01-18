@@ -40,8 +40,7 @@ const createOptions = (parent) => {
     resetLeaderboard.textContent = RESET_LEADERBOARD;
     musicButton.textContent = FIRST_MUSIC_TEXT;
     resetLeaderboard.addEventListener('click', () => {
-        console.log('RESET LEADERBOARD');
-        localStorage.setItem = 'test local storage';
+        localStorage.clear();
     });
     musicButton.addEventListener('click', switchMusic);
     createNickInput(parent);
@@ -56,11 +55,17 @@ const createNickInput = (parent) => {
     nickSubmit.innerHTML = SUBMIT_TEXT;
     nickSubmit.addEventListener('click', () => {
         let nickInput = document.querySelector('.nickInput');
+        let nickOutput = document.querySelector('.nickOutput');
         defaultNickFromOptions = nickInput.value;
-        console.log('Mateusz, ' + defaultNickFromOptions);
         nickInput.value = '';
+        nickOutput.innerText = defaultNickFromOptions;
     });
+    createNickOutput(nickContainer);
 };
+
+const createNickOutput = (parent) =>{
+    let nickOutput = createDOMElement(DIV_ELEMENT, 'nickOutput font', parent, defaultNickFromOptions);
+}
 
 const createNickParagraph = (parent) => {
     let nickParagraphOption = createDOMElement(

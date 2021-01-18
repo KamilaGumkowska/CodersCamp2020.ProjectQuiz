@@ -13,5 +13,4 @@ export const quizSettings = {
 export const App = ({}) => {
     music.playMusic();
     showMainMenu();
-    // showDifficultyLevelScreen(quizSettings);
 };
