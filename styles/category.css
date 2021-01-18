@@ -51,7 +51,18 @@ body {
     /* border: green solid 5px; */
 }
 
-.btn {
+/* .btn {
+    background-color: rgba(0, 0, 0, 0);
+    border: solid 5px rgba(253, 184, 19, 1);
+    color: rgba(253, 184, 19, 1);
+    height: 10vh;
+    margin: 20%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+} */
+.categoryBtn {
     background-color: rgba(0, 0, 0, 0);
     border: solid 5px rgba(253, 184, 19, 1);
     color: rgba(253, 184, 19, 1);
@@ -67,7 +78,7 @@ body {
     background-image: none;
     cursor: pointer;
 }
-.btn:hover {
+.categoryBtn:hover {
     background-color: black;
 }
 

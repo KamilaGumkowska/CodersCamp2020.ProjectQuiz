@@ -42,9 +42,9 @@ function showCategories() {
 }
 
 function showNavigation() {
-    quitButton = createDOMElement('button', 'bg btn quit', anchorTable[6], 'BACK');
+    quitButton = createDOMElement('button', 'bg categoryBtn quit', anchorTable[6], 'BACK');
 
-    submitButton = createDOMElement('button', 'btn submit', anchorTable[7], 'NEXT');
+    submitButton = createDOMElement('button', 'categoryBtn submit', anchorTable[7], 'NEXT');
     createIMG(bottomOfHeadImage, categoryScreen, 'headBottom');
     tip = createDOMElement('h2', 'tip', categoryScreen, 'SELECT CATEGORY');
 }
