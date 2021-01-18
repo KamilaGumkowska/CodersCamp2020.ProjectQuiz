@@ -1,5 +1,6 @@
 .timerContainer {
     position: relative;
+    justify-content: center;
     height: 200px;
     width: 200px;
 }
@@ -9,8 +10,8 @@
 }
 .timerPath {
     stroke-width: 7px;
-    stroke:  gray;
-}  
+    stroke: gray;
+}
 .base-timer__svg {
     transform: scaleX(-1);
 }
@@ -38,14 +39,14 @@
 }
 
 .timerPathRemaining.orange {
-    color: #FDB813;
+    color: #fdb813;
 }
 
 .timerPathRemaining.red {
     color: red;
 }
-  
-@media(max-width: 376px) {
+
+@media (max-width: 376px) {
     .timerContainer {
         height: 100px;
         width: 100px;

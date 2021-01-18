@@ -81,7 +81,8 @@ const updateSettings = (quizSettings) => {
         if (document.querySelector('.differenceLevel').value == 2) selectedLevel = 'hard';
         let selectedNbrOfQuestions = document.querySelector('.numberOfQuestions').value;
         quizSettings.difficultyLevel = selectedLevel;
-        quizSettings.numberOfQuestion = selectedNbrOfQuestions;
+        quizSettings.numberOfQuestions = selectedNbrOfQuestions;
+        console.log(quizSettings);
         MAIN.innerHTML = '';
         createGameScreen();
     });

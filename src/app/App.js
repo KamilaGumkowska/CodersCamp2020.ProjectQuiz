@@ -14,11 +14,6 @@ export const quizSettings = {
 };
 
 export const App = ({}) => {
-    // showMainMenu();
-    //showDifficultyLevelScreen(quizSettings);
-    //renderCategoryScreen();
-    //showResults();
-    //showLeaderboardScreen();
     //music.playMusic();
     showMainMenu();
 };

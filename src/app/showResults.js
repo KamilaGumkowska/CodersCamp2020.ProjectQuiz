@@ -20,7 +20,9 @@ function createResultsStructure() {
     const SCORE_DISPLAY_TXT = 'your score is: ' + finalScore + '/' + quizSettings.numberOfQuestions * 15;
 
     const mainWrap = document.getElementById('main-wrap');
+    const rest = document.querySelector('.rest');
     mainWrap.innerHTML = '';
+    rest.innerHTML = '';
 
     const resultsWrap = document.createElement('div');
     resultsWrap.id = 'resultswrap';
