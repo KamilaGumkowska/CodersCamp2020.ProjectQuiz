@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    height: 100vh;
+    width:100vw;
+    background-color: #323232;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+.question {
+    margin-bottom: 5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.question h3 {
+    color: #FDB813;
+    font-size: 72px;
+    font-family: 'Poppins', sans-serif;
+}
+.question p {
+    margin-left: 3vw;
+    color: white;
+    font-size: 30px;
+    font-weight: 300;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+.answer {
+    width: 40vw;
+    height: 12vh;
+    border: 3px solid white;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.answer:hover {
+    background-color: #FDB813
+}    
+.answer p{
+    font-size: 23px;
+    margin-left: 0;
+}
+.level p {
+    font-size: 16px;
+    margin-left: 0;
+}
+.rest {
+    display: flex;
+    flex-direction: column;
+}
+.timer {
+    display:flex;
+    justify-content: center;
+}
+.level p {
+    color: #FDB813;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+.quit {
+    width: 10vw;
+    height: 5vh;
+    border: 2px solid white;
+    border-radius: 50px;
+    cursor: pointer;
+    align-self: center;
+    margin-top: 2vh;
+}
+.quit p {
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    text-align: center;
+}
+.quit:hover {
+    background-color:  #FDB813;
+}
+.top-img {
+    position: relative;
+    right: 25px;
+    width: 360px;
+    margin-bottom: 2vh;
+}
+.bottom-img {
+    position: absolute;
+    bottom: 0;
+    right: 25px;
+    width: 320px;
+    height: 200px;
+}
+
+@media(max-width: 376px) {
+    .question {
+        width: 100vw;
+        margin-bottom: 2vh;
+    }
+    .question h3 {
+        font-size: 45px;
+        margin-bottom: 15px;
+    }
+    .icon {
+        height: 35px;
+        width: auto;
+    }
+    .question p {
+        font-size: 20px;
+    }
+    .answer {
+        margin-top: 15px;
+        width: 70vw;
+        height: 8vh;
+    }
+    .answer p{
+        font-size: 16px;
+    }
+    .level p {
+        font-size: 12px;
+    }
+    body {
+        grid-template-columns: 1fr;
+    }
+    .bottom-img, .top-img {
+        display: none;
+    }
+    .quit {
+        width: 25vw;
+        height: 5vh;
+    }
+    .quit p {
+        font-size: 16px;
+    }
+}

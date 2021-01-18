@@ -1,0 +1,48 @@
+@media (max-width: 1610px) {
+    img.headimg {
+        position: absolute;
+        pointer-events: none;
+        right: -5%;
+    }
+
+    h1 {
+        font-size: 80px;
+        line-height: 1;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 900px) {
+    img.headimg {
+        width: 120px;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: 20px auto;
+    }
+
+    img.blueimg {
+        visibility: hidden;
+    }
+
+    .options-wrap {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 50px;
+    }
+    
+    .btn {
+        font-size: 15px;
+        padding: 15px 50px;
+    }
+
+    .btn.teritary {
+        margin: 10px;
+    }
+}

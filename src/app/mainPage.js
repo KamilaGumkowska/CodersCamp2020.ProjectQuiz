@@ -1,104 +1,69 @@
 import image1 from './../../styles/img/img1.png';
 import image2 from './../../styles/img/img2.png';
 
+// import { showDifficultyLevelScreen } from './difficultyLevel.js'; //for single btn
+// import {  } from ''; for multi btn
+// import {  } from ''; for leaderboard btn
+import { showCredits } from './credits.js';
+import { showOptionsScreen } from './optionsScreen';
+
 export function showMainMenu() {
     createMainMenuStructure();
 }
 
+const mainWrap = document.getElementById('main-wrap');
+
 function createMainMenuStructure() {
-    const mainWrap = document.getElementById('main-wrap');
     mainWrap.innerHTML = '';
 
     const startWrap = document.createElement('div');
     startWrap.id = 'startwrap';
 
-    const mainGame = document.createElement('div');
-    mainGame.className = 'main-game';
-
-    const leaderBoardWrap = document.createElement('div');
-    leaderBoardWrap.className = 'leaderboard-wrap';
-
-    const creditsWrap = document.createElement('div');
-    creditsWrap.className = 'credits-wrap';
-
-    const optionsWrap = document.createElement('div');
-    optionsWrap.className = 'options-wrap';
-
-    const gameTitle = document.createElement('h1');
-    gameTitle.className = 'title';
-    gameTitle.innerHTML = 'brains out quiz';
-
-    const gameSubTitle = document.createElement('h2');
-    gameSubTitle.className = 'subtitle';
-    gameSubTitle.innerHTML = 'starts here:';
-
-    const singleBtn = document.createElement('button');
-    singleBtn.classList.add('btn', 'primary', 'single');
-    singleBtn.innerHTML = 'single';
-
-    const multiBtn = document.createElement('button');
-    multiBtn.classList.add('btn', 'primary', 'multi');
-    multiBtn.innerHTML = 'multi';
-
-    const leaderTitle = document.createElement('h2');
-    leaderTitle.className = 'subtitle';
-    leaderTitle.innerHTML = 'ends here:';
-
-    const leaderBtn = document.createElement('button');
-    leaderBtn.classList.add('btn', 'secondary', 'leaderboard');
-    leaderBtn.innerHTML = 'see our leaders';
-
-    const creditsBtn = document.createElement('button');
-    creditsBtn.classList.add('btn', 'teritary', 'credits');
-    creditsBtn.innerHTML = 'credits';
-
-    const optionsBtn = document.createElement('button');
-    optionsBtn.classList.add('btn', 'teritary', 'options');
-    optionsBtn.innerHTML = 'options';
-
-    const img1 = document.createElement('img');
-    img1.className = 'headimg';
-    img1.src = image1;
-
-    const img2 = document.createElement('img');
-    img2.className = 'blueimg';
-    img2.src = image2;
-
     mainWrap.appendChild(startWrap);
 
-    startWrap.appendChild(mainGame);
-    startWrap.appendChild(leaderBoardWrap);
-    startWrap.appendChild(creditsWrap);
-    startWrap.appendChild(optionsWrap);
-    startWrap.appendChild(img1);
-    startWrap.appendChild(img2);
+    const mainGame = createNewElement('div', 'main-game', startWrap);
+    const leaderBoardWrap = createNewElement('div', 'leaderboard-wrap', startWrap);
+    const creditsWrap = createNewElement('div', 'credits-wrap', startWrap);
+    const optionsWrap = createNewElement('div', 'options-wrap', startWrap);
 
-    mainGame.appendChild(gameTitle);
-    mainGame.appendChild(gameSubTitle);
-    mainGame.appendChild(singleBtn);
-    mainGame.appendChild(multiBtn);
+    createNewImgElement('headimg', image1, startWrap);
+    createNewImgElement('blueimg', image2, startWrap);
 
-    leaderBoardWrap.appendChild(leaderTitle);
-    leaderBoardWrap.appendChild(leaderBtn);
+    createNewElement('h1', 'title', mainGame, 'brains out quiz');
+    createNewElement('h2', 'subtitle', mainGame, 'starts here:');
+    const singleBtn = createNewElement('button', 'btn primary single', mainGame, 'single');
+    const multiBtn = createNewElement('button', 'btn primary multi', mainGame, 'multi');
 
-    creditsWrap.appendChild(creditsBtn);
+    createNewElement('h2', 'subtitle', leaderBoardWrap, 'ends here:');
+    const leaderBtn = createNewElement('button', 'btn secondary leaderboard', leaderBoardWrap, 'see our leaders');
 
-    optionsWrap.appendChild(optionsBtn);
+    const creditsBtn = createNewElement('button', 'btn teritary credits', creditsWrap, 'credits');
 
-    singleBtn.addEventListener('click', goToSingle);
-    multiBtn.addEventListener('click', goToMulti);
+    const optionsBtn = createNewElement('button', 'btn teritary options', optionsWrap, 'options');
+
+    // goToScreenOnClick(singleBtn, showDifficultyLevelScreen);
+    // goToScreenOnClick(multiBtn, showMulti);
+    // goToScreenOnClick(leaderBtn, showLeader);
+    goToScreenOnClick(creditsBtn, showCredits);
+    goToScreenOnClick(optionsBtn, showOptionsScreen);
 }
 
-function hideStartScreen() {
-    startWrap.style.visibility = 'hidden';
+export function goToScreenOnClick(btnName, showScreen) {
+    btnName.addEventListener('click', showScreen);
 }
 
-function goToSingle() {
-    hideStartScreen();
-    // start function for the single game
+export function createNewElement(tag, className, parent, text = '') {
+    const newElement = document.createElement(tag);
+    newElement.className = className;
+    newElement.innerHTML = text;
+    parent.appendChild(newElement);
+    return newElement;
 }
 
-function goToMulti() {
-    hideStartScreen();
-    // start function for the multi game
+export function createNewImgElement(className, source, parent) {
+    const newImgElement = document.createElement('img');
+    newImgElement.className = className;
+    newImgElement.src = source;
+    parent.appendChild(newImgElement);
+    return newImgElement;
 }
