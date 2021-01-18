@@ -1,9 +1,9 @@
 import image1 from './../../styles/img/img1.png';
 import image2 from './../../styles/img/img2.png';
 
-// import { showDifficultyLevelScreen } from './difficultyLevel.js'; //for single btn
-// import {  } from ''; for multi btn
-// import {  } from ''; for leaderboard btn
+// import { showDifficultyLevelScreen } from './difficultyLevel.js'; // category function here
+import { showWorkInProgress } from './workInProgress';
+// import {  } from ''; // leaderboard function here
 import { showCredits } from './credits.js';
 import { showOptionsScreen } from './optionsScreen';
 
@@ -41,9 +41,9 @@ function createMainMenuStructure() {
 
     const optionsBtn = createNewElement('button', 'btn teritary options', optionsWrap, 'options');
 
-    // goToScreenOnClick(singleBtn, showDifficultyLevelScreen);
-    // goToScreenOnClick(multiBtn, showMulti);
-    // goToScreenOnClick(leaderBtn, showLeader);
+    // goToScreenOnClick(singleBtn, showDifficultyLevelScreen); // category function
+    goToScreenOnClick(multiBtn, showWorkInProgress);
+    // goToScreenOnClick(leaderBtn, showLeader); // leaderboard function
     goToScreenOnClick(creditsBtn, showCredits);
     goToScreenOnClick(optionsBtn, showOptionsScreen);
 }
