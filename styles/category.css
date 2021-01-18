@@ -1,17 +1,7 @@
 body {
     background-color: #323232;
 }
-#main-wrap { 
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
 
-    grid-gap: 30px;
-    width: 68%;
-
-    margin: 5%;
-    padding-top: 10vh;
-
-}
 .categoryTitle {
     grid-column-start: 1;
     grid-column-end: 4;
@@ -45,17 +35,34 @@ body {
     flex-direction: column;
     justify-content: center;
 }
-.submit button {
-    grid-column-start: 1;
-    background-color: red;
+.categoryScreen {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    grid-gap: 30px;
+    width: 68%;
+    height: 80%;
+
+    margin: 5%;
+    padding-top: 10vh;
+    /* border: 5px red solid; */
+
 }
+#main-wrap {
+    /* border: green solid 5px; */
+}
+
 .btn {
     background-color: rgba(0, 0, 0, 0);
     border: solid 5px rgba(253, 184, 19, 1);
     color: rgba(253, 184, 19, 1);
     height: 10vh;
-    margin: 20%;
-    padding: 2rem
+     margin: 20%; 
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
 } 
 .bg:hover {
     background-color: rgba(253, 184, 19, 1);
@@ -65,20 +72,30 @@ body {
 .btn:hover {
     background-color: black;
 }
-.submit {
-    grid-column-start: 3;
-}
+
 
 a {
     text-decoration: none;
     color: #f8f8f8;
 }
-a:last-child {
-    grid-column-start: 3;
-    border: red solid 5px;
-}
+
 
 
 .bg:focus {
     background-color: rgba(253, 184, 19, 1); /*nie działa */
+}
+.submit {
+    grid-column-start: 1;
+  
+    
+}
+a:nth-child(10) {
+    grid-column-start: 3;
+  
+}
+.tip {
+    grid-column-start: 2;
+    grid-row-start: 4;
+    margin: auto auto;
+    visibility: hidden;
 }

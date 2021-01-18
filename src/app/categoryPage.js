@@ -6,16 +6,19 @@ import bottomOfHeadImage from './../../styles/img/bottom_of_head.png';
 import {createIMG} from "./difficultyLevel"
 
 const MAIN = document.querySelector('#main-wrap');
-let selectedCat;
+let categoryScreen;
+
+let selectedCat = 0;
+let tip;
 let quitButton;
 let submitButton;
 const category = [];
 const anchorTable = [];
-const categoryName = ['SCIENCE', 'ART', 'SPORT', 'MUSIC', 'COMPUTERS', 'GENERAL KNOWLEDGE'];
+const categoryName = ['VIDEO GAMES', 'SCIENCE & NATURE', 'MUSIC', 'HISTORY','GEOGRAPHY', 'GENERAL KNOWLEDGE'];
 const categoryClass = ['bg one', 'bg two', 'bg three', 'bg four', 'bg five', 'bg six'];
 
 const createDOMElement = function (type, className, parent, text = '') {
-    createIMG(topOfHeadImage, MAIN, "headTop")
+    
     const newElement = document.createElement(type);
     newElement.className = className;
     newElement.innerText = text;
@@ -24,10 +27,14 @@ const createDOMElement = function (type, className, parent, text = '') {
 };
 
 function createParents() {
-    createDOMElement("h1", "categoryTitle", MAIN, "CATEGORY");
+    MAIN.innerHTML = " ";
+    categoryScreen = createDOMElement("div", "categoryScreen", MAIN);
+    createIMG(topOfHeadImage, categoryScreen, "headTop");
+    createDOMElement("h1", "categoryTitle", categoryScreen, "CATEGORY");
     for (let i = 0; i < 8; i++) {
-        anchorTable[i] = createDOMElement('a', 'a', MAIN);
+        anchorTable[i] = createDOMElement('a', 'a', categoryScreen );
     }
+    
     
 };
 
@@ -41,9 +48,11 @@ function showCategories() {
 
 function showNavigation() {
     quitButton = createDOMElement('button', 'bg btn quit', anchorTable[6], 'BACK');
+   
  
-    submitButton = createDOMElement('button', 'bg btn submit', anchorTable[7], 'NEXT');
-    createIMG(bottomOfHeadImage, MAIN, "headBottom")
+    submitButton = createDOMElement('button', 'btn submit', anchorTable[7], 'NEXT');
+    createIMG(bottomOfHeadImage, categoryScreen, "headBottom");
+    tip = createDOMElement('h2', 'tip', categoryScreen, 'SELECT CATEGORY');
     
 };
 
@@ -54,26 +63,64 @@ function addCategoryEventListeners() {
             if (selectedCat > 0) {
                 category[selectedCat - 1].style.backgroundColor = 'rgba(0,0,0,0)'; // unclicked
             }
+            tip.style.visibility = "hidden";
             selectedCat = i + 1;
             console.log(selectedCat);
             category[i].style.backgroundColor = '#FDB813'; //clicked
+           
+            if ( selectedCat == 1) 
+            {
+                quizSettings.category = 15;
+
+            }
+            else if ( selectedCat == 2)
+            {
+                quizSettings.category = 17;
+
+            }
+            else if ( selectedCat == 3)
+            {
+                quizSettings.category = 12;
+
+            }
+            else if ( selectedCat == 4)
+            {
+                quizSettings.category = 23;
+
+            }
+            else if ( selectedCat == 5)
+            {
+                quizSettings.category = 22;
+
+            }
+            else if ( selectedCat == 6) 
+            {
+                quizSettings.category = 9;
+            }
+            console.log(quizSettings.category);
+
         });
     }
 };
 
 
 function quitModule() {
-    quizSettings.category = selectedCat;
-    // if(selectedCat = 0) {
-    //     quitButton.attr('disabled','true');
-    // }
-    // else {
-    //     quitButton.attr('disabled','false');
-    // }
-    submitButton.addEventListener('click', () => {showDifficultyLevelScreen(quizSettings)});
-    quitButton.addEventListener('click', () => {showMainMenu()});// powrót na mainPage
+    
+    submitButton.addEventListener('click', () => {
+        console.log(selectedCat);
+        if(selectedCat === 0) {
+            submitButton.disabled = false;
+            tip.style.visibility = "visible";        
+        }
+        else {
+            showDifficultyLevelScreen(quizSettings);
+        }
+    });
+        
+    quitButton.addEventListener('click', (e) => {
+        showMainMenu()});
 }
-//quitModule();
+
 
 export function renderCategoryScreen() {
     createParents();
