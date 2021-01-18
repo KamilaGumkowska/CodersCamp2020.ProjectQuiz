@@ -1,17 +1,25 @@
 import image1 from './../../styles/img/img1.png';
 import image2 from './../../styles/img/img2.png';
-import { showMainMenu } from './mainPage';
-//import { createGameScreen } from './game.js';
-//import { finalScore } from '.game.js';
-const finalScore = 30;
 import { quizSettings } from './App';
-//import { showLeaderboard } from './leaderboard,js';
+import { showMainMenu } from './mainPage';
+import { createNewElement } from './mainPage';
+import { createNewImgElement } from './mainPage';
+import { createGameScreen } from './game';
+import { finalScore } from '.game';
+import { showLeaderboardScreen } from './leaderboard';
+import { defaultNickFromOptions } from '.optionsScreen';
 
 export function showResults() {
     createResultsStructure();
 }
 
 function createResultsStructure() {
+    const RESULT_BTN_TXT = 'submit score';
+    const TRYAGAIN_BTN_TXT = 'try again';
+    const MAINPAGE_BTN_TXT = 'main page';
+    const TITLE_TXT = 'quiz result';
+    const SCORE_DISPLAY_TXT = 'your score is: ' + finalScore + '/' + quizSettings.numberOfQuestions * 15;
+
     const mainWrap = document.getElementById('main-wrap');
     mainWrap.innerHTML = '';
 
@@ -25,42 +33,32 @@ function createResultsStructure() {
     const img1 = createNewImgElement('headimg', image1, resultsWrap);
     const img2 = createNewImgElement('blueimg', image2, resultsWrap);
 
-    const endTitle = createNewElement('h1', 'title', endGame, 'quiz result');
-    const quizScore = createNewElement('h2', 'subtitle', endGame, 'your score is: ' + finalScore + '/' + quizSettings.numberOfQuestions * 15);
+    const endTitle = createNewElement('h1', 'title', endGame, TITLE_TXT);
+    const quizScore = createNewElement('h2', 'subtitle', endGame, SCORE_DISPLAY_TXT);
     const nickNameInput = createNewElement('input', 'btn secondary nickInput', endGame, 'nickname');
-    nickNameInput.placeholder = ('Enter your name');
-    const submitResultBtn = createNewElement('button', 'btn secondary submitBtn', endGame, 'submit score');
-    const tryAgainBtn = createNewElement('button', 'btn primary try-again', endGame, 'try again');
-    const mainPageBtn = createNewElement('button', 'btn priary main-page', endGame, 'main page');
+    nickNameInput.value = defaultNickFromOptions;
+    const submitResultBtn = createNewElement('button', 'btn secondary submitBtn', endGame, RESULT_BTN_TXT);
+    const tryAgainBtn = createNewElement('button', 'btn primary try-again', endGame, TRYAGAIN_BTN_TXT);
+    const mainPageBtn = createNewElement('button', 'btn priary main-page', endGame, MAINPAGE_BTN_TXT);
 
     submitResultBtn.addEventListener('click', saveResult);
-    //tryAgainBtn.addEventListener('click', createGamescreen);
+    tryAgainBtn.addEventListener('click', createGamescreen);
     mainPageBtn.addEventListener('click', showMainMenu);
 }
 
+let highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+
 function saveResult() {
     let nickInput = document.querySelector('.nickInput');
-    console.log(nickInput.value);
-    if (nickInput.value !='') {
-    localStorage.setItem('nickName', nickInput.value);
-    localStorage.setItem('userScore', finalScore);
-    //showLeaderboard;
-    }
-    else alert("Enter your name to submit!");
-}
-
-export function createNewElement(tag, className, parent, text = '') {
-    const newElement = document.createElement(tag);
-    newElement.className = className;
-    newElement.innerHTML = text;
-    parent.appendChild(newElement);
-    return newElement;
-}
-
-export function createNewImgElement(className, source, parent) {
-    const newImgElement = document.createElement('img');
-    newImgElement.className = className;
-    newImgElement.src = source;
-    parent.appendChild(newImgElement);
-    return newImgElement;
+    let score = {
+        score: finalScore,
+        name: nickInput.value,
+    };
+    
+    highScores.push(score);
+    highScores.sort((a, b) => b.score - a.score);
+    highScores.splice(10);
+    
+    localStorage.setItem('highScores', JSON.stringify(highScores));
+    showLeaderboardScreen();
 }
