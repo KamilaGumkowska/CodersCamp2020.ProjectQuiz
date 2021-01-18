@@ -153,17 +153,3 @@ body {
     right: 5%;
     width: 22.5%;
 }
-
-/* @media (max-width: 600px) {
-    .leaderboardWrapper {
-        max-width: 80%;
-        height: 100vh;
-        margin: 10% auto;
-    }
-
-    .listContainer {
-        margin: 1rem auto;
-        min-width: 160px;
-        max-width: 800px;
-    }
-    } */

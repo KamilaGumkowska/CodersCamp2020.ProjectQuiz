@@ -5,19 +5,19 @@ import { createIMG } from './difficultyLevel';
 
 const MAIN = document.querySelector('#main-wrap');
 const itemsArrayList = [];
-// let highScores = JSON.parse(localStorage.getItem('highScores')) || [];
-let highScores = [
-    { score: 100, name: 'Seb' },
-    { score: 70, name: 'Sebast' },
-    { score: 67, name: 'Jadzia' },
-    { score: 60, name: 'Stasia' },
-    { score: 50, name: 'Seb' },
-    { score: 40, name: 'Loser' },
-    { score: 30, name: 'MoreLoser' },
-    { score: 20, name: 'Jjh' },
-    { score: 10, name: 'Sthjda' },
-    { score: 5, name: 'killMe' },
-];
+let highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+// let highScores = [
+//     { score: 100, name: 'Seb' },
+//     { score: 70, name: 'Sebast' },
+//     { score: 67, name: 'Jadzia' },
+//     { score: 60, name: 'Stasia' },
+//     { score: 50, name: 'Seb' },
+//     { score: 40, name: 'Loser' },
+//     { score: 30, name: 'MoreLoser' },
+//     { score: 20, name: 'Jjh' },
+//     { score: 10, name: 'Sthjda' },
+//     { score: 5, name: 'killMe' },
+// ];
 
 export function showLeaderboardScreen() {
     createHTMLStructure();
