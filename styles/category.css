@@ -46,7 +46,6 @@ body {
     margin: 5%;
     padding-top: 10vh;
     /* border: 5px red solid; */
-
 }
 #main-wrap {
     /* border: green solid 5px; */
@@ -57,13 +56,12 @@ body {
     border: solid 5px rgba(253, 184, 19, 1);
     color: rgba(253, 184, 19, 1);
     height: 10vh;
-     margin: 20%; 
+    margin: 20%;
     padding: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
-
-} 
+}
 .bg:hover {
     background-color: rgba(253, 184, 19, 1);
     background-image: none;
@@ -73,25 +71,19 @@ body {
     background-color: black;
 }
 
-
 a {
     text-decoration: none;
     color: #f8f8f8;
 }
-
-
 
 .bg:focus {
     background-color: rgba(253, 184, 19, 1); /*nie działa */
 }
 .submit {
     grid-column-start: 1;
-  
-    
 }
 a:nth-child(10) {
     grid-column-start: 3;
-  
 }
 .tip {
     grid-column-start: 2;
