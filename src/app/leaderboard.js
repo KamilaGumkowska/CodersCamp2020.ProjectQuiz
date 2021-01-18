@@ -1,31 +1,27 @@
+import topOfHeadImage from './../../styles/img/top_of_head.png';
+import bottomOfHeadImage from './../../styles/img/bottom_of_head.png';
 import { showMainMenu } from './mainPage';
+import { createIMG } from './difficultyLevel';
+
 const MAIN = document.querySelector('#main-wrap');
-// const scoreList = ['score4', 'score5', 'score6', 'score7', 'score8', 'score9', 'score10'];
 const itemsArrayList = [];
-let highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+// let highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+let highScores = [
+    { score: 100, name: 'Seb' },
+    { score: 70, name: 'Sebast' },
+    { score: 67, name: 'Jadzia' },
+    { score: 60, name: 'Stasia' },
+    { score: 50, name: 'Seb' },
+    { score: 40, name: 'Loser' },
+    { score: 30, name: 'MoreLoser' },
+    { score: 20, name: 'Jjh' },
+    { score: 10, name: 'Sthjda' },
+    { score: 5, name: 'killMe' },
+];
 
 export function showLeaderboardScreen() {
-    addingToLocalStorage();
     createHTMLStructure();
 }
-//Storage
-function addingToLocalStorage() {
-    let value = localStorage.getItem('userScore');
-    let key = localStorage.getItem('nickName');
-    let score = {
-        score: value,
-        name: key,
-    };
-
-    highScores.push(score);
-    highScores.sort((a, b) => b.score - a.score);
-    highScores.splice(10);
-
-    localStorage.setItem('highScores', JSON.stringify(highScores));
-    // location.reload();
-}
-
-//HTML
 
 function createNewDiv(className, parent, text = '') {
     const newElement = document.createElement('div');
@@ -43,6 +39,7 @@ function createHTMLStructure() {
     createTop3(leaderboardWrapper);
     createRestOfTheList(leaderboardWrapper);
     createButtonSection(leaderboardWrapper);
+    createImageSection(leaderboardWrapper);
 }
 
 function createPageTitle(parent) {
@@ -56,17 +53,35 @@ function createTop3(parent) {
     let item1 = createNewDiv('item1', top3Container);
     let item3 = createNewDiv('item3', top3Container);
 
-    createNewDiv('position1', item1, '1');
-    createNewDiv('userName1', item1, 'Sebo');
-    createNewDiv('score1', item1, '1200');
+    if (highScores.length >= 1) {
+        createNewDiv('position1', item1, '1');
+        createNewDiv('userName1', item1, highScores[0].name);
+        createNewDiv('score1', item1, highScores[0].score + ' points');
+    } else {
+        createNewDiv('position1', item1, '1');
+        createNewDiv('userName1', item1, 'userName');
+        createNewDiv('score1', item1, 'userScore');
+    }
 
-    createNewDiv('position2', item2, '2');
-    createNewDiv('userName2', item2, 'Marek');
-    createNewDiv('score2', item2, '1100');
+    if (highScores.length >= 2) {
+        createNewDiv('position2', item2, '2');
+        createNewDiv('userName2', item2, highScores[1].name);
+        createNewDiv('score2', item2, highScores[1].score + ' points');
+    } else {
+        createNewDiv('position2', item2, '2');
+        createNewDiv('userName2', item2, 'userName');
+        createNewDiv('score2', item2, 'userScore');
+    }
 
-    createNewDiv('position3', item3, '3');
-    createNewDiv('userName3', item3, 'Andrzej');
-    createNewDiv('score3', item3, '1000');
+    if (highScores.length >= 3) {
+        createNewDiv('position3', item3, '3');
+        createNewDiv('userName3', item3, highScores[2].name);
+        createNewDiv('score3', item3, highScores[2].score + ' points');
+    } else {
+        createNewDiv('position3', item3, '3');
+        createNewDiv('userName3', item3, 'userName');
+        createNewDiv('score3', item3, 'userScore');
+    }
 }
 
 function createRestOfTheList(parent) {
@@ -76,18 +91,24 @@ function createRestOfTheList(parent) {
         itemsArrayList[i] = createNewDiv('listElementBox', listContener);
     }
 
-    for (let i = 0; i < highScores.length; i++) {
-        createNewDiv('userName', itemsArrayList[i + 4], highScores[i].name);
+    for (let i = 4; i <= highScores.length; i++) {
+        // 10
+        createNewDiv('userName', itemsArrayList[i], [i] + '. ' + highScores[i - 1].name);
     }
 
-    for (let i = 0; i < highScores.length; i++) {
-        createNewDiv('score', itemsArrayList[i + 4], highScores[i].score);
+    for (let i = 4; i <= highScores.length; i++) {
+        createNewDiv('score', itemsArrayList[i], highScores[i - 1].score + ' points');
     }
 }
 
 function createButtonSection(parent) {
     let backToMenuButton = createNewDiv('backToMenuButton', parent);
-    backToMenuButton.textContent = 'menu';
-    //backToMenuButton.setAttribute('onclick', "window.location.href='#main-wrap'");
-    backToMenuButton.addEventListener("click",() => {showMainMenu()} );
+    backToMenuButton.textContent = 'MENU';
+    backToMenuButton.addEventListener('click', () => {
+        showMainMenu();
+    });
+}
+function createImageSection(parent) {
+    createIMG(topOfHeadImage, parent, 'headTop');
+    createIMG(bottomOfHeadImage, parent, 'headBottom');
 }
