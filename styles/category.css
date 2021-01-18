@@ -16,11 +16,12 @@ body {
 .unclicked {
     background-color: rgba(0, 0, 0, 0);
 }
+.categoryScreen > * {
+    width: 100%;
+}
 
 .bg {
-    /* height: 20vh; */
     font-family: Poppins;
-    /* width: auto; */
     font-size: 20px;
     font-style: normal;
     font-weight: 700;
@@ -46,25 +47,10 @@ body {
     width: 68%;
     height: 80%;
 
-    margin: 5%;
+    margin: 2%;
     padding-top: 10vh;
-    /* border: 5px red solid; */
-}
-#main-wrap {
-    /* border: green solid 5px; */
 }
 
-/* .btn {
-    background-color: rgba(0, 0, 0, 0);
-    border: solid 5px rgba(253, 184, 19, 1);
-    color: rgba(253, 184, 19, 1);
-    height: 10vh;
-    margin: 20%;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-} */
 .categoryBtn {
     background-color: rgba(0, 0, 0, 0);
     border: solid 5px rgba(253, 184, 19, 1);
@@ -91,7 +77,7 @@ a {
 }
 
 .bg:focus {
-    background-color: rgba(253, 184, 19, 1); /*nie działa */
+    background-color: rgba(253, 184, 19, 1);
 }
 .submit {
     grid-column-start: 1;
