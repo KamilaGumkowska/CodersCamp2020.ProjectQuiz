@@ -1,0 +1,38 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #323232;
+}
+
+:root {
+    --black: #323232;
+    --yellow: #FDB813;
+    --white: #F8F8F8;
+}
+
+.workwrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url('./img/bcg.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 100vw;
+    height: 100vh;
+}
+
+.startwrap {
+    margin: 100px auto;
+}
+
+.bulbimg {
+    margin: 90px 0 25px 0;
+    width: 120px;
+}
+
+.btn.secondary.backbtn {
+    margin: 20px auto;
+}
