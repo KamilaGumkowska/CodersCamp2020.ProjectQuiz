@@ -34,6 +34,18 @@ body {
     height: 100vh;
 }
 
+#resultswrap {
+    display: grid;
+    grid-template-areas: 
+        "game"
+        "leader";
+    grid-template-rows: 4fr 1fr;
+    justify-items: center;
+    align-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
 .main-game {
     grid-area: game;
     align-self: flex-end;
@@ -44,6 +56,36 @@ body {
         "h2 h2"
         "btn1 btn2";
     justify-items: center;
+}
+
+.endgame {
+    grid-area: game;
+    align-self: flex-end;
+    margin-bottom: 5rem;
+    display: grid;
+    grid-template-areas: 
+        "h1 h1"
+        "h2 h2"
+        "inpt btn3"
+        "btn1 btn2";
+    justify-items: center;
+    row-gap: 1em;
+}
+
+.nickNameInput {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 55%;
+}
+.nickInput{
+    text-transform: none;
+    width:100%;
+    font-size: 1.2rem;
+    font-style: normal;
+    letter-spacing: 0em;
+    text-align: center;
 }
 
 .leaderboard-wrap {
@@ -70,6 +112,22 @@ body {
 
 .main-game .multi {
     grid-area: btn2;
+}
+
+.endgame .try-again {
+    grid-area: btn1;
+}
+
+.endgame .main-page {
+    grid-area: btn2;
+}
+
+.endgame .nickInput {
+    grid-area: inpt;
+}
+
+.endgame .submitBtn {
+    grid-area: btn3;
 }
 
 .leaderboard-wrap .subtitle {
@@ -110,7 +168,7 @@ h2 {
     text-align: center;
 }
 
-.main-game h2.subtitle {
+.endgame h2.subtitle {
     margin-bottom: 5rem;
 }
 
