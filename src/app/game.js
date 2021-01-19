@@ -4,6 +4,7 @@ import { quizSettings } from './App';
 import { startTimer } from './timer';
 import { noTimeLeft } from './timer';
 import { showResults } from './showResults';
+import { showMainMenu } from './mainPage';
 const MULTIPLE_CHOICE_ANSWERS_NUMBER = 4;
 
 // const quizSettings = {
@@ -176,7 +177,11 @@ function addEventListeners() {
 function addQuitEventListener() {
     const QUIBUTTON = document.getElementById('quit');
     QUIBUTTON.addEventListener('click', (e) => {
-        return window.location.assign('quiz');
+        const REST = document.querySelector('.rest');
+        const QUIZ = document.getElementById('main-wrap');
+        QUIZ.className = '';
+        REST.innerHTML = '';
+        showMainMenu();
     });
 }
 
