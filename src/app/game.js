@@ -84,6 +84,8 @@ function getAnotherQuestion() {
     if (availableQuestions.length === 0) {
         console.log(finalScore + '/' + quizSettings.numberOfQuestions * 15);
         setTimeout(() => {
+            const QUIZ = document.getElementById('main-wrap');
+            QUIZ.className = '';
             showResults();
         }, 100);
     } else {
