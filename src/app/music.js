@@ -1,7 +1,7 @@
 import mario from '../music/mario.mp3';
 export const music = {
     audio: new Audio(mario),
-    state: 1,
+    state: 0,
 
     playMusic: () => {
         music.audio.play();
@@ -15,3 +15,4 @@ export const music = {
 };
 music.audio.loop = true;
 music.audio.volume = 0.35;
+

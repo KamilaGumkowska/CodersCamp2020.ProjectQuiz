@@ -9,7 +9,7 @@ const INPUT_ELEMENT = 'input';
 const BUTTON_ELEMENT = 'button';
 const SET_DEFAULT_NICKNAME = 'SET DEFAULT NICKNAME';
 const RESET_LEADERBOARD = 'RESET LEADERBOARD';
-const FIRST_MUSIC_TEXT = 'MUSIC ON';
+const FIRST_MUSIC_TEXT = 'MUSIC OFF';
 const SUBMIT_TEXT = 'SUBMIT';
 
 const MAIN = document.querySelector('#main-wrap');
