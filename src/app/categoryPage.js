@@ -94,6 +94,7 @@ function quitModule() {
 }
 
 export function renderCategoryScreen() {
+    selectedCat = 0;
     createParents();
     showCategories();
     showNavigation();
