@@ -36,14 +36,21 @@ export function startTimer() {
     timePassed = 0;
     clearInterval(timerInterval);
     timerInterval = setInterval(() => {
+        let rest = document.querySelector('.rest');
         timePassed = timePassed += 1;
         timeLeft = TIME_LIMIT - timePassed;
         if (timeLeft <= 0) {
             noTimeLeft = true;
         }
-        document.getElementById('timerLabel').innerHTML = formatTime(timeLeft);
-        setCircleDasharray();
-        setRemainingPathColor(timeLeft);
+        if(rest==null){
+            clearInterval(timerInterval);
+            return;
+        } 
+        if (!noTimeLeft) {
+            document.getElementById('timerLabel').innerHTML = formatTime(timeLeft);
+            setCircleDasharray();
+            setRemainingPathColor(timeLeft);
+        } else return;
     }, 1000);
     return;
 }

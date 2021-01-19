@@ -82,7 +82,6 @@ const updateSettings = (quizSettings) => {
         let selectedNbrOfQuestions = document.querySelector('.numberOfQuestions').value;
         quizSettings.difficultyLevel = selectedLevel;
         quizSettings.numberOfQuestions = selectedNbrOfQuestions;
-        console.log(quizSettings);
         MAIN.innerHTML = '';
         createGameScreen();
     });

@@ -57,7 +57,6 @@ function addCategoryEventListeners() {
             }
             tip.style.visibility = 'hidden';
             selectedCat = i + 1;
-            console.log(selectedCat);
             category[i].style.backgroundColor = '#FDB813'; //clicked
 
             if (selectedCat == 1) {

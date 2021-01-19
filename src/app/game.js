@@ -27,6 +27,7 @@ let availableQuestions = [];
 let level;
 
 async function fetchQuizQuestions() {
+    questions = [];
     await fetch(
         `https://opentdb.com/api.php?amount=${quizSettings.numberOfQuestions}&category=${quizSettings.category}&difficulty=${quizSettings.difficultyLevel}`,
     )
@@ -82,10 +83,11 @@ function getAnotherQuestion() {
     numberOfQuestions++;
 
     if (availableQuestions.length === 0) {
-        console.log(finalScore + '/' + quizSettings.numberOfQuestions * 15);
         setTimeout(() => {
             const QUIZ = document.getElementById('main-wrap');
+            const rest = document.querySelector('.rest');
             QUIZ.className = '';
+            if (rest) rest.remove();
             showResults();
         }, 100);
     } else {
@@ -167,7 +169,6 @@ function addEventListeners() {
             } else {
                 finalScore += 0;
             }
-            console.log(finalScore);
             getAnotherQuestion();
             setQuestions();
             ifTrueOrFalse();
@@ -183,6 +184,7 @@ function addQuitEventListener() {
         const QUIZ = document.getElementById('main-wrap');
         QUIZ.className = '';
         REST.innerHTML = '';
+        REST.remove();
         showMainMenu();
     });
 }
