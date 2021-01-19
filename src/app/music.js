@@ -14,3 +14,4 @@ export const music = {
     },
 };
 music.audio.loop = true;
+music.audio.volume = 0.35;

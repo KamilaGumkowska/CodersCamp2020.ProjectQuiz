@@ -14,6 +14,6 @@ export const quizSettings = {
 };
 
 export const App = ({}) => {
-    //music.playMusic();
+    music.playMusic();
     showMainMenu();
 };
