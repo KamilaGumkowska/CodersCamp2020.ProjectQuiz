@@ -17,7 +17,7 @@ function createResultsStructure() {
     const TRYAGAIN_BTN_TXT = 'try again';
     const MAINPAGE_BTN_TXT = 'main page';
     const TITLE_TXT = 'quiz result';
-    const SCORE_DISPLAY_TXT = 'your score is: ' + finalScore + '/' + quizSettings.numberOfQuestions * 15;
+    const SCORE_DISPLAY_TXT = 'your score is: ' + (finalScore*100)/(quizSettings.numberOfQuestions*15) + '/' + 100;
 
     const mainWrap = document.getElementById('main-wrap');
     mainWrap.innerHTML = '';
@@ -51,7 +51,7 @@ function saveResult() {
     if (defaultNickFromOptions != '' || nickNameInput != '') {
         let nickInput = document.querySelector('.nickInput');
         let score = {
-            score: finalScore,
+            score: (finalScore * 100) / (quizSettings.numberOfQuestions * 15),
             name: nickInput.value,
         };
 
