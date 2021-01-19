@@ -15,6 +15,7 @@ body {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    padding-right:20%;
 }
 .question h3 {
     color: #fdb813;
